@@ -1,14 +1,4 @@
-{
+ {
   "schemaVersion": 2,
-  "dockerfileLines":[
-   
-     	"FROM httpd:alpine",
-
-	"COPY ./build/web /usr/local/apache2/htdocs/",
-	
-	"EXPOSE 80"
-
-
-
-  ]
+  "dockerfilePath": "./Dockerfile"
  }
