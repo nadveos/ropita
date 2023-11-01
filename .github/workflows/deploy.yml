@@ -16,6 +16,10 @@ jobs:
 
     - name: Set up Docker Buildx
       uses: docker/setup-buildx-action@v3
+      with:
+        version: v0.10.0
+        append: |
+            platforms: linux/arm64
       
       
     - name: Login to Container Registry
