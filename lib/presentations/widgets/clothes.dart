@@ -27,36 +27,40 @@ class _ClothesState extends State<Clothes> {
         if (snapshot.hasData) {
           ropa = snapshot.data!.items;
 
-          return Scrollbar(
-            thumbVisibility: true,
+          return GridView.builder(
+            gridDelegate:  const SliverGridDelegateWithMaxCrossAxisExtent(maxCrossAxisExtent: 250,
+            childAspectRatio: 1.5/2,
+            mainAxisSpacing: 10,
+            crossAxisSpacing: 20),
+            shrinkWrap: true,
             controller: controller,
-            child: ListView.builder(
-              shrinkWrap: true,
-              scrollDirection: Axis.horizontal,
-              itemCount: ropa.length,
-              itemBuilder: (context, index) {
-                return Stack(
-                  fit: StackFit.loose,
-                  clipBehavior: Clip.antiAlias,
-                  alignment: Alignment.center,
-                  children: [
-                    GestureDetector(
-                      onTap: () {
-                        Navigator.pushNamed(context, '/details',
-                            arguments: ropa[index]);
-                      },
+            itemCount: ropa.length,
+            itemBuilder: (context, index) {
+              return Stack(
+                // fit: StackFit.loose,
+                // clipBehavior: Clip.antiAlias,
+                
+                children: [
+                  GestureDetector(
+                    onTap: () {
+                      Navigator.pushNamed(context, '/details',
+                          arguments: ropa[index]);
+                    },
+                    child: Padding(
+                      padding: const EdgeInsets.symmetric(horizontal: 10),
                       child: Container(
                         padding: const EdgeInsets.symmetric(
                             horizontal: 8, vertical: 5),
-                        margin: const EdgeInsets.symmetric(
-                            vertical: 5, horizontal: 10),
-                        height: 250,
-                        width: 300,
+                       
                         decoration: BoxDecoration(
+                          
                           borderRadius:
-                              const BorderRadius.all(Radius.circular(15)),
+                              const BorderRadius.only(
+                                bottomLeft: Radius.circular(20),
+                                topRight: Radius.circular(20)
+                              ),
                           image: DecorationImage(
-                            opacity: 0.6,
+                            opacity: 0.5,
                             image: NetworkImage(ropa[index].getImageUrl()),
                             fit: BoxFit.cover,
                           ),
@@ -69,14 +73,14 @@ class _ClothesState extends State<Clothes> {
                               top: 10,
                               child: Text(
                                 ropa[index].name,
+                                overflow: TextOverflow.fade,
                                 textAlign: TextAlign.center,
                                 softWrap: true,
                                 style: GoogleFonts.bebasNeue(
                                   letterSpacing: 5,
-                                  fontSize: 30,
+                                  fontSize: 22,
                                   fontWeight: FontWeight.bold,
-                                  color:
-                                      const Color.fromARGB(255, 251, 251, 251),
+                                  color: const Color.fromARGB(255, 251, 251, 251),
                                   shadows: [
                                     const Shadow(
                                       blurRadius: 10.0,
@@ -94,7 +98,7 @@ class _ClothesState extends State<Clothes> {
                                 '\$ ${ropa[index].price}',
                                 style: GoogleFonts.bebasNeue(
                                     color: Colors.white,
-                                    fontSize: 25,
+                                    fontSize: 15,
                                     backgroundColor: Colors.black54),
                               ),
                             ),
@@ -102,10 +106,10 @@ class _ClothesState extends State<Clothes> {
                         ),
                       ),
                     ),
-                  ],
-                );
-              },
-            ),
+                  ),
+                ],
+              );
+            },
           );
         } else {
           return const Center(

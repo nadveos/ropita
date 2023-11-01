@@ -1,4 +1,4 @@
-#Wed Nov 01 08:22:13 ART 2023
+#Wed Nov 01 08:58:05 ART 2023
 base.0=C\:\\Users\\gutaf\\OneDrive\\Documentos\\Escritorio\\Flutter Intermedio\\ropijamas\\build\\app\\intermediates\\dex\\debug\\mergeDexDebug\\classes.dex
 path.0=classes.dex
 renamed.0=classes.dex

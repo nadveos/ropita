@@ -67,23 +67,7 @@ class _HomeScreenState extends State<HomeScreen> {
                 const SizedBox(
                   height: 10,
                 ),
-                Container(
-                  margin: const EdgeInsets.only(left: 20, right: 20, top: 50),
-                  height: 300,
-                  width: double.infinity,
-                  decoration: const BoxDecoration(
-                    borderRadius: BorderRadius.only(
-                        topLeft: Radius.circular(25),
-                        topRight: Radius.circular(25)),
-                    boxShadow: [
-                      BoxShadow(
-                          blurStyle: BlurStyle.inner,
-                          blurRadius: 1,
-                          color: Colors.white30)
-                    ],
-                  ),
-                  child: const Clothes(),
-                ),
+                const Clothes(),
                 const SizedBox(
                   height: 5,
                 ),
