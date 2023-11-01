@@ -1,6 +1,11 @@
 name: Build and Deploy Docker Image
 
-on: [push]
+on:
+  push:
+    branches: [ "main" ]
+
+  pull_request:
+    branches: [ "main" ]
 
 jobs:
   build_and_deploy:
@@ -27,7 +32,7 @@ jobs:
       uses: docker/build-push-action@v4
       with:
         context: .
-        file: ./Dockerfile
+        file: ./Docker
         push: true
         tags: ${{ env.IMAGE_URL }}
 
