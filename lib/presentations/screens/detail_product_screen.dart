@@ -38,14 +38,11 @@ class _DetailProductScreenState extends State<DetailProductScreen> {
             SliverAppBar(
               expandedHeight: 380,
               pinned: true,
-              flexibleSpace: Hero(
-                tag: productDetail.id,
-                child: Material(
-                  child: InkWell(
-                    child: Image.network(
-                      productDetail.getImageUrl(),
-                      fit: BoxFit.cover,
-                    ),
+              flexibleSpace: Material(
+                child: InkWell(
+                  child: Image.network(
+                    productDetail.getImageUrl(),
+                    fit: BoxFit.cover,
                   ),
                 ),
               ),
