@@ -1,11 +1,6 @@
 name: Build and Deploy Docker Image
 
-on:
-  push:
-    branches: [ "main" ]
-
-  pull_request:
-    branches: [ "main" ]
+on:on: [pull_request]
 
 jobs:
   build_and_deploy:
