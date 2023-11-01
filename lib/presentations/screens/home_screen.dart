@@ -11,6 +11,7 @@ class HomeScreen extends StatefulWidget {
 }
 
 class _HomeScreenState extends State<HomeScreen> {
+  ScrollController controller = ScrollController();
   @override
   Widget build(BuildContext context) {
     return Container(
@@ -19,119 +20,126 @@ class _HomeScreenState extends State<HomeScreen> {
       decoration: const BoxDecoration(
         gradient: LinearGradient(
           colors: [Colors.purpleAccent, Colors.purple, Colors.deepPurple],
+          begin: Alignment.topLeft,
+          end: Alignment.bottomRight,
           stops: [0.2, 0.6, 1.0],
         ),
       ),
       child: Scaffold(
         backgroundColor: Colors.transparent,
         body: SafeArea(
-          child: Column(
-            mainAxisAlignment: MainAxisAlignment.spaceAround,
-            children: [
-              Center(
-                child: Column(
-                  mainAxisAlignment: MainAxisAlignment.center,
-                  mainAxisSize: MainAxisSize.max,
-                  // crossAxisAlignment: CrossAxisAlignment.center,
+          child: SingleChildScrollView(
+            controller: controller,
+            scrollDirection: Axis.vertical,
+            child: Column(
+              mainAxisAlignment: MainAxisAlignment.center,
+              children: [
+                Center(
+                  child: Column(
+                    mainAxisAlignment: MainAxisAlignment.center,
+                    mainAxisSize: MainAxisSize.max,
+                    // crossAxisAlignment: CrossAxisAlignment.center,
+                    children: [
+                      Text(
+                        'ROPIJAMAS',
+                        textAlign: TextAlign.center,
+                        style: GoogleFonts.bebasNeue(
+                            letterSpacing: 10,
+                            color: Colors.white,
+                            fontSize: 60,
+                            shadows: [
+                              const Shadow(
+                                blurRadius: 10.0,
+                                color: Colors.black54,
+                                offset: Offset(1.0, 3.0),
+                              )
+                            ]),
+                      ),
+                      Text(
+                        'Tú mejor descanso..',
+                        textAlign: TextAlign.center,
+                        style: GoogleFonts.bebasNeue(
+                            color: Colors.white60, fontSize: 25),
+                      )
+                    ],
+                  ),
+                ),
+                const SizedBox(
+                  height: 10,
+                ),
+                Container(
+                  margin: const EdgeInsets.only(left: 20, right: 20, top: 50),
+                  height: 300,
+                  width: double.infinity,
+                  decoration: const BoxDecoration(
+                    borderRadius: BorderRadius.only(
+                        topLeft: Radius.circular(25),
+                        topRight: Radius.circular(25)),
+                    boxShadow: [
+                      BoxShadow(
+                          blurStyle: BlurStyle.inner,
+                          blurRadius: 1,
+                          color: Colors.white30)
+                    ],
+                  ),
+                  child: const Clothes(),
+                ),
+                const SizedBox(
+                  height: 5,
+                ),
+                Column(
+                  mainAxisAlignment: MainAxisAlignment.end,
                   children: [
+                    const SizedBox(height: 50,),
                     Text(
-                      'ROPIJAMAS',
+                      'Terminaciones delicadas',
                       textAlign: TextAlign.center,
+                      softWrap: true,
+                      overflow: TextOverflow.ellipsis,
                       style: GoogleFonts.bebasNeue(
-                          letterSpacing: 10,
-                          color: Colors.white,
-                          fontSize: 60,
-                          shadows: [
-                            const Shadow(
-                              blurRadius: 10.0,
-                              color: Colors.black54,
-                              offset: Offset(1.0, 3.0),
-                            )
-                          ]),
+                        color: Colors.white60,
+                        fontSize: 16,
+                      ),
                     ),
                     Text(
-                      'Tú mejor descanso..',
+                      '100% Algodón',
                       textAlign: TextAlign.center,
+                      softWrap: true,
+                      overflow: TextOverflow.ellipsis,
                       style: GoogleFonts.bebasNeue(
-                          color: Colors.white60, fontSize: 25),
-                    )
+                        color: Colors.white60,
+                        fontSize: 16,
+                      ),
+                    ),
+                    Text(
+                      'MOdelos UNISEX',
+                      textAlign: TextAlign.center,
+                      softWrap: true,
+                      overflow: TextOverflow.ellipsis,
+                      style: GoogleFonts.bebasNeue(
+                        color: Colors.white60,
+                        fontSize: 16,
+                      ),
+                    ),
+                    Text(
+                      'Comodidad para grandes y chicos',
+                      textAlign: TextAlign.center,
+                      softWrap: true,
+                      overflow: TextOverflow.ellipsis,
+                      style: GoogleFonts.bebasNeue(
+                        color: Colors.white60,
+                        fontSize: 16,
+                      ),
+                    ),
                   ],
                 ),
-              ),
-              const SizedBox(
-                height: 10,
-              ),
-              Container(
-                margin: const EdgeInsets.only(left: 20, right: 20),
-                height: 300,
-                width: double.infinity,
-                decoration: const BoxDecoration(
-                  borderRadius: BorderRadius.only(
-                      topLeft: Radius.circular(25),
-                      topRight: Radius.circular(25)),
-                  boxShadow: [
-                    BoxShadow(
-                        blurStyle: BlurStyle.inner,
-                        blurRadius: 1,
-                        color: Colors.white30)
-                  ],
-                ),
-                child: const Clothes(),
-              ),
-              const SizedBox(
-                height: 5,
-              ),
-              Column(
-                mainAxisAlignment: MainAxisAlignment.spaceAround,
-                children: [
-                  Text(
-                    'Terminaciones delicadas',
-                    textAlign: TextAlign.center,
-                    softWrap: true,
-                    overflow: TextOverflow.ellipsis,
-                    style: GoogleFonts.bebasNeue(
-                      color: Colors.white60,
-                      fontSize: 16,
-                    ),
-                  ),
-                  Text(
-                    '100% Algodón',
-                    textAlign: TextAlign.center,
-                    softWrap: true,
-                    overflow: TextOverflow.ellipsis,
-                    style: GoogleFonts.bebasNeue(
-                      color: Colors.white60,
-                      fontSize: 16,
-                    ),
-                  ),
-                  Text(
-                    'MOdelos UNISEX',
-                    textAlign: TextAlign.center,
-                    softWrap: true,
-                    overflow: TextOverflow.ellipsis,
-                    style: GoogleFonts.bebasNeue(
-                      color: Colors.white60,
-                      fontSize: 16,
-                    ),
-                  ),
-                  Text(
-                    'Comodidad para grandes y chicos',
-                    textAlign: TextAlign.center,
-                    softWrap: true,
-                    overflow: TextOverflow.ellipsis,
-                    style: GoogleFonts.bebasNeue(
-                      color: Colors.white60,
-                      fontSize: 16,
-                    ),
-                  ),
-                ],
-              ),
-              const BottomThings()
-            ],
+                const SizedBox(height: 50,),
+                const BottomThings()
+              ],
+            ),
           ),
         ),
       ),
     );
   }
 }
-
