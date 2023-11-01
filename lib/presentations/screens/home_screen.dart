@@ -41,7 +41,7 @@ class _HomeScreenState extends State<HomeScreen> {
                     // crossAxisAlignment: CrossAxisAlignment.center,
                     children: [
                       Text(
-                        'ROPIJAMAS',
+                        'LeNa',
                         textAlign: TextAlign.center,
                         style: GoogleFonts.bebasNeue(
                             letterSpacing: 10,
@@ -56,7 +56,7 @@ class _HomeScreenState extends State<HomeScreen> {
                             ]),
                       ),
                       Text(
-                        'Tú mejor descanso..',
+                        'Ropita cómoda...',
                         textAlign: TextAlign.center,
                         style: GoogleFonts.bebasNeue(
                             color: Colors.white60, fontSize: 25),

@@ -1,4 +1,4 @@
-package com.gustavoflores.ropijamas
+package com.gustavoflores.lena
 
 import io.flutter.embedding.android.FlutterActivity
 
