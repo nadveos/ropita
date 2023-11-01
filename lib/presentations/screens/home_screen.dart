@@ -1,7 +1,8 @@
-import 'package:LeNa/presentations/widgets/bottom_things.dart';
-import 'package:LeNa/presentations/widgets/clothes.dart';
+
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
+import 'package:ropijamas/presentations/widgets/bottom_things.dart';
+import 'package:ropijamas/presentations/widgets/clothes.dart';
 
 
 class HomeScreen extends StatefulWidget {
