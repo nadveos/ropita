@@ -30,14 +30,14 @@ migrate_working_dir/
 .packages
 .pub-cache/
 .pub/
-/test/
-/build/93cae48154605b2b23f957321f3fac0a.cache.dill.track.dill
-/build/app
-/build/flutter_assets
-/build/kotlin
-/build/fbb96aa443dc65af8f9555fd66409416
-/build/url_launcher_android
-/build/path_provider_android
+test/
+build/93cae48154605b2b23f957321f3fac0a.cache.dill.track.dill
+build/app
+build/flutter_assets
+build/kotlin
+build/fbb96aa443dc65af8f9555fd66409416
+build/url_launcher_android
+build/path_provider_android
 # Symbolication related
 app.*.symbols
 
