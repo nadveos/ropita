@@ -1,6 +1,7 @@
 // ignore_for_file: avoid_print
 
 import 'package:flutter/material.dart';
+import 'package:flutter_spinkit/flutter_spinkit.dart';
 import 'package:flutter_staggered_grid_view/flutter_staggered_grid_view.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:provider/provider.dart';
@@ -18,7 +19,6 @@ class _ClothesState extends State<Clothes> {
   ScrollController controller = ScrollController();
 
   List<SimpleProduct> ropa = [];
-  
 
   @override
   Widget build(BuildContext context) {
@@ -26,6 +26,7 @@ class _ClothesState extends State<Clothes> {
     return FutureBuilder(
         future: clothes.getAdultClothes(),
         builder: (context, snapshot) {
+          
           if (snapshot.hasData) {
             ropa = snapshot.data!.items;
 
@@ -57,19 +58,17 @@ class _ClothesState extends State<Clothes> {
                           alignment: Alignment.bottomCenter,
                           children: [
                             Ink.image(
-                              image: NetworkImage(
-                                          '${ropa[index].getImageUrl()}'),
+                              image:
+                                  NetworkImage('${ropa[index].getImageUrl()}'),
                               height: double.infinity,
-                              colorFilter:  const ColorFilter.mode(
+                              colorFilter: const ColorFilter.mode(
                                   Colors.black, BlendMode.dstATop),
                               fit: BoxFit.cover,
                               child: InkWell(
-                                
-                                
                                 onTap: () {
                                   //? Push deatil page
                                   Navigator.pushNamed(context, '/details',
-                            arguments: ropa[index]);
+                                      arguments: ropa[index]);
                                 },
                               ),
                             ),
@@ -88,8 +87,10 @@ class _ClothesState extends State<Clothes> {
                 ));
           }
           return const Center(
-            child: LinearProgressIndicator(),
-          );
+              child: SpinKitRotatingCircle(
+            color: Color.fromARGB(255, 84, 36, 195),
+            size: 150.0,
+          ));
         });
   }
 }
