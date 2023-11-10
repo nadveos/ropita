@@ -121,5 +121,8 @@ class SimpleProduct {
     } else {
       return 'https://ropita.meapp.online/api/files/$collectionId/$id/$image';
     }
-  }    
+  }
+
+  
+      
 }

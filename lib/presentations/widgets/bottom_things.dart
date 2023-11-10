@@ -11,7 +11,7 @@ class BottomThings extends StatelessWidget {
     return Column(
       // mainAxisAlignment: MainAxisAlignment.spaceAround,
       children: [
-        const SizedBox(height: 10,),
+      
         Text(
           'Diseñado y creado por Gustavo J. Flores',
           style: GoogleFonts.montserratAlternates(

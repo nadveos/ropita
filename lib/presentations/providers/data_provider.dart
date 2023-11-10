@@ -1,21 +1,22 @@
 // ignore_for_file: avoid_print
 
-import 'dart:convert';
-
-
 import 'package:flutter/material.dart';
-import 'package:http/http.dart' as http;
+import 'package:pocketbase/pocketbase.dart';
 import 'package:ropijamas/data/models/products_model.dart';
+//import 'package:ropijamas/data/models/products_model.dart';
+//import 'package:ropijamas/data/models/testing_model.dart';
 
+final pb = PocketBase('https://ropita.meapp.online');
 
 class DataProvider extends ChangeNotifier {
-  List<SimpleProduct> items = [];
   Future<AllProducts> getAdultClothes() async {
-    final records = await http.get(Uri.parse(
-        'https://ropita.meapp.online/api/collections/products/records'));
+    final records = await pb.collection('products').getList();
 
-    AllProducts pijamas = AllProducts.fromJson(json.decode(records.body));
+    AllProducts pijamas = AllProducts.fromJson(records.toJson());
+
     notifyListeners();
     return pijamas;
   }
+
+  
 }

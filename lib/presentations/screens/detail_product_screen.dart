@@ -42,16 +42,20 @@ class _DetailProductScreenState extends State<DetailProductScreen> {
               pinned: true,
               flexibleSpace: Material(
                 child: InkWell(
-                  child: Image.network(
-                    productDetail.getImageUrl(),
-                    fit: BoxFit.cover,
+                  child: Hero(
+                    transitionOnUserGestures: true,
+                    tag: productDetail.id,
+                    child: Image.network(
+                      productDetail.getImageUrl(),
+                      fit: BoxFit.cover,
+                    ),
                   ),
                 ),
               ),
               centerTitle: true,
               title: Text(
                 productDetail.name.toUpperCase(),
-                style: GoogleFonts.bebasNeue(
+                style: GoogleFonts.montserrat(
                   fontSize: 40,
                   color: const Color.fromARGB(255, 251, 251, 251),
                   shadows: [
@@ -70,7 +74,7 @@ class _DetailProductScreenState extends State<DetailProductScreen> {
                 child: Text(
                   productDetail.name.toUpperCase(),
                   textAlign: TextAlign.center,
-                  style: GoogleFonts.bebasNeue(
+                  style: GoogleFonts.montserrat(
                     color: Colors.white,
                     fontSize: 25,
                   ),
@@ -100,7 +104,7 @@ class _DetailProductScreenState extends State<DetailProductScreen> {
                       children: [
                         Text(
                           'Categoria',
-                          style: GoogleFonts.bebasNeue(
+                          style: GoogleFonts.montserrat(
                             color: Colors.white,
                             fontSize: 18,
                           ),
@@ -127,7 +131,7 @@ class _DetailProductScreenState extends State<DetailProductScreen> {
                     textAlign: TextAlign.center,
                     softWrap: true,
                     overflow: TextOverflow.clip,
-                    style: GoogleFonts.bebasNeue(
+                    style: GoogleFonts.montserrat(
                       color: Colors.white,
                       fontSize: 25,
                     ),
@@ -137,7 +141,7 @@ class _DetailProductScreenState extends State<DetailProductScreen> {
                   ),
                   Text(
                     'Talles ${productDetail.size}',
-                    style: GoogleFonts.bebasNeue(
+                    style: GoogleFonts.montserrat(
                         color: Colors.white60,
                         fontSize: 15,
                         fontStyle: FontStyle.italic,
@@ -164,7 +168,7 @@ class _DetailProductScreenState extends State<DetailProductScreen> {
                         ))),
                     child: Text(
                       'Consultar',
-                      style: GoogleFonts.bebasNeue(
+                      style: GoogleFonts.montserrat(
                         color: Colors.white,
                         fontSize: 25,
                       ),
