@@ -1,9 +1,8 @@
-
 import 'package:flutter/material.dart';
+import 'package:font_awesome_flutter/font_awesome_flutter.dart';
+import 'package:gap/gap.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:ropijamas/presentations/widgets/bottom_things.dart';
-import 'package:ropijamas/presentations/widgets/clothes.dart';
-
 
 class HomeScreen extends StatefulWidget {
   const HomeScreen({super.key});
@@ -12,118 +11,77 @@ class HomeScreen extends StatefulWidget {
   State<HomeScreen> createState() => _HomeScreenState();
 }
 
+ScrollController controller = ScrollController();
+
 class _HomeScreenState extends State<HomeScreen> {
-  ScrollController controller = ScrollController();
   @override
   Widget build(BuildContext context) {
     return Container(
-      width: double.infinity,
-      height: double.infinity,
-      decoration: const BoxDecoration(
-        gradient: LinearGradient(
-          colors: [Colors.purpleAccent, Colors.purple, Colors.deepPurple],
-          begin: Alignment.topLeft,
-          end: Alignment.bottomRight,
-          stops: [0.2, 0.6, 1.0],
+        width: double.infinity,
+        height: double.infinity,
+        decoration: const BoxDecoration(
+          gradient: LinearGradient(
+            colors: [Colors.purpleAccent, Colors.purple, Colors.deepPurple],
+            begin: Alignment.topLeft,
+            end: Alignment.bottomRight,
+            stops: [0.2, 0.6, 1.0],
+          ),
         ),
-      ),
-      child: Scaffold(
-        backgroundColor: Colors.transparent,
-        body: SafeArea(
-          child: SingleChildScrollView(
-            controller: controller,
-            scrollDirection: Axis.vertical,
-            child: Column(
+        child: const Scaffold(
+            backgroundColor: Colors.transparent,
+            body: Padding(
+                padding: EdgeInsets.symmetric(vertical: 5, horizontal: 20),
+                child: LayoutChico())));
+  }
+}
+
+class LayoutChico extends StatelessWidget {
+  const LayoutChico({super.key});
+  @override
+  Widget build(BuildContext context) {
+    return Center(
+      child: SingleChildScrollView(
+        scrollDirection: Axis.vertical,
+        controller: controller,
+        child: Column(
+          mainAxisAlignment: MainAxisAlignment.spaceAround,
+          children: [
+            Column(
               mainAxisAlignment: MainAxisAlignment.center,
               children: [
-                Center(
-                  child: Column(
-                    mainAxisAlignment: MainAxisAlignment.center,
-                    mainAxisSize: MainAxisSize.max,
-                    // crossAxisAlignment: CrossAxisAlignment.center,
-                    children: [
-                      Text(
-                        'LeNa',
-                        textAlign: TextAlign.center,
-                        style: GoogleFonts.bebasNeue(
-                            letterSpacing: 10,
-                            color: Colors.white,
-                            fontSize: 60,
-                            shadows: [
-                              const Shadow(
-                                blurRadius: 10.0,
-                                color: Colors.black54,
-                                offset: Offset(1.0, 3.0),
-                              )
-                            ]),
-                      ),
-                      Text(
-                        'Ropita cómoda...',
-                        textAlign: TextAlign.center,
-                        style: GoogleFonts.bebasNeue(
-                            color: Colors.white60, fontSize: 25),
-                      )
-                    ],
+                ClipRRect(
+                  clipBehavior: Clip.antiAlias,
+                  child: Image.asset(
+                    'assets/images/lena.png',
+                    width: double.infinity,
+                    height: 400,
                   ),
                 ),
-                const SizedBox(
-                  height: 10,
+                Text(
+                  'LENA',
+                  style: GoogleFonts.montserrat(
+                      color: Colors.white,
+                      fontSize: 60,
+                      fontWeight: FontWeight.bold),
                 ),
-                const Clothes(),
-                const SizedBox(
-                  height: 5,
+                Text(
+                  'Ropita comoda...',
+                  style: GoogleFonts.montserrat(
+                      fontSize: 30, color: Colors.white70),
                 ),
-                Column(
-                  mainAxisAlignment: MainAxisAlignment.end,
-                  children: [
-                    const SizedBox(height: 50,),
-                    Text(
-                      'Terminaciones delicadas',
-                      textAlign: TextAlign.center,
-                      softWrap: true,
-                      overflow: TextOverflow.ellipsis,
-                      style: GoogleFonts.bebasNeue(
-                        color: Colors.white60,
-                        fontSize: 16,
-                      ),
-                    ),
-                    Text(
-                      '100% Algodón',
-                      textAlign: TextAlign.center,
-                      softWrap: true,
-                      overflow: TextOverflow.ellipsis,
-                      style: GoogleFonts.bebasNeue(
-                        color: Colors.white60,
-                        fontSize: 16,
-                      ),
-                    ),
-                    Text(
-                      'MOdelos UNISEX',
-                      textAlign: TextAlign.center,
-                      softWrap: true,
-                      overflow: TextOverflow.ellipsis,
-                      style: GoogleFonts.bebasNeue(
-                        color: Colors.white60,
-                        fontSize: 16,
-                      ),
-                    ),
-                    Text(
-                      'Comodidad para grandes y chicos',
-                      textAlign: TextAlign.center,
-                      softWrap: true,
-                      overflow: TextOverflow.ellipsis,
-                      style: GoogleFonts.bebasNeue(
-                        color: Colors.white60,
-                        fontSize: 16,
-                      ),
-                    ),
-                  ],
-                ),
-                const SizedBox(height: 50,),
-                const BottomThings()
+                const Gap(30),
+                IconButton.outlined(
+                    iconSize: 30,
+                    color: Colors.white,
+                    onPressed: () {
+                      Navigator.pushNamed(context, '/products');
+                    },
+                    icon: const Icon(FontAwesomeIcons.arrowRight))
               ],
             ),
-          ),
+            const Gap(50),
+            const BottomThings()
+          ],
         ),
       ),
     );

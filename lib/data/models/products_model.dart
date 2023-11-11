@@ -60,6 +60,7 @@ class SimpleProduct {
   final String price;
   final String size;
   final DateTime updated;
+  final bool hay;
 
   SimpleProduct({
     required this.category,
@@ -73,6 +74,7 @@ class SimpleProduct {
     required this.price,
     required this.size,
     required this.updated,
+    required this.hay,
   });
 
   factory SimpleProduct.fromJson(Map<String, dynamic> json) => SimpleProduct(
@@ -86,7 +88,8 @@ class SimpleProduct {
         name: json["name"],
         price: json["price"],
         size: json["size"],
-        updated: DateTime.parse(json["updated"]),
+        updated: DateTime.parse(json["updated"]), 
+        hay: true 
       );
 
   Map<String, dynamic> toJson() => {
@@ -101,6 +104,7 @@ class SimpleProduct {
         "price": price,
         "size": size,
         "updated": updated.toIso8601String(),
+        "hay": hay,
       };
   
   SimpleProductEntity toEntity() => SimpleProductEntity(
@@ -114,12 +118,17 @@ class SimpleProduct {
       name: name,
       price: price,
       size: size,
-      updated: updated);
+      updated: updated,
+      hay:hay
+      );
   getImageUrl() {
     if (image == '') {
       return 'https://miro.medium.com/max/500/0*-ouKIOsDCzVCTjK-.png';
     } else {
       return 'https://ropita.meapp.online/api/files/$collectionId/$id/$image';
     }
-  }    
+  }
+
+  
+      
 }

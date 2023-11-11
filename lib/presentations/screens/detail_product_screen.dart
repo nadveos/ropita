@@ -3,8 +3,7 @@ import 'package:flutter/material.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:ropijamas/data/models/products_model.dart';
-import 'package:ropijamas/presentations/widgets/bottom_things.dart';
-import 'package:ropijamas/presentations/widgets/launcher_of_urls.dart';
+import 'package:ropijamas/presentations/widgets/widgets.dart';
 
 
 
@@ -42,16 +41,20 @@ class _DetailProductScreenState extends State<DetailProductScreen> {
               pinned: true,
               flexibleSpace: Material(
                 child: InkWell(
-                  child: Image.network(
-                    productDetail.getImageUrl(),
-                    fit: BoxFit.cover,
+                  child: Hero(
+                    transitionOnUserGestures: true,
+                    tag: productDetail.id,
+                    child: Image.network(
+                      productDetail.getImageUrl(),
+                      fit: BoxFit.cover,
+                    ),
                   ),
                 ),
               ),
               centerTitle: true,
               title: Text(
                 productDetail.name.toUpperCase(),
-                style: GoogleFonts.bebasNeue(
+                style: GoogleFonts.montserrat(
                   fontSize: 40,
                   color: const Color.fromARGB(255, 251, 251, 251),
                   shadows: [
@@ -70,7 +73,7 @@ class _DetailProductScreenState extends State<DetailProductScreen> {
                 child: Text(
                   productDetail.name.toUpperCase(),
                   textAlign: TextAlign.center,
-                  style: GoogleFonts.bebasNeue(
+                  style: GoogleFonts.montserrat(
                     color: Colors.white,
                     fontSize: 25,
                   ),
@@ -100,7 +103,7 @@ class _DetailProductScreenState extends State<DetailProductScreen> {
                       children: [
                         Text(
                           'Categoria',
-                          style: GoogleFonts.bebasNeue(
+                          style: GoogleFonts.montserrat(
                             color: Colors.white,
                             fontSize: 18,
                           ),
@@ -127,7 +130,7 @@ class _DetailProductScreenState extends State<DetailProductScreen> {
                     textAlign: TextAlign.center,
                     softWrap: true,
                     overflow: TextOverflow.clip,
-                    style: GoogleFonts.bebasNeue(
+                    style: GoogleFonts.montserrat(
                       color: Colors.white,
                       fontSize: 25,
                     ),
@@ -137,7 +140,7 @@ class _DetailProductScreenState extends State<DetailProductScreen> {
                   ),
                   Text(
                     'Talles ${productDetail.size}',
-                    style: GoogleFonts.bebasNeue(
+                    style: GoogleFonts.montserrat(
                         color: Colors.white60,
                         fontSize: 15,
                         fontStyle: FontStyle.italic,
@@ -164,7 +167,7 @@ class _DetailProductScreenState extends State<DetailProductScreen> {
                         ))),
                     child: Text(
                       'Consultar',
-                      style: GoogleFonts.bebasNeue(
+                      style: GoogleFonts.montserrat(
                         color: Colors.white,
                         fontSize: 25,
                       ),

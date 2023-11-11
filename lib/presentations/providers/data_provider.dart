@@ -1,21 +1,54 @@
 // ignore_for_file: avoid_print
 
-import 'dart:convert';
-
-
 import 'package:flutter/material.dart';
-import 'package:http/http.dart' as http;
+import 'package:pocketbase/pocketbase.dart';
 import 'package:ropijamas/data/models/products_model.dart';
+//import 'package:ropijamas/data/models/products_model.dart';
+//import 'package:ropijamas/data/models/testing_model.dart';
 
+final pb = PocketBase('https://ropita.meapp.online');
 
 class DataProvider extends ChangeNotifier {
-  List<SimpleProduct> items = [];
-  Future<AllProducts> getAdultClothes() async {
-    final records = await http.get(Uri.parse(
-        'https://ropita.meapp.online/api/collections/products/records'));
+  // Future<AllProducts> getAllClothes() async {
+  //   final records =
+  //       await pb.collection('products').getList(filter: 'hay = true');
 
-    AllProducts pijamas = AllProducts.fromJson(json.decode(records.body));
+  //   AllProducts pijamas = AllProducts.fromJson(records.toJson());
+
+  //   notifyListeners();
+  //   return pijamas;
+  // }
+
+  Future<AllProducts> kidsClothes() async {
+    final records = await pb
+        .collection('products')
+        .getList(filter: 'hay = true && category = "Infantil"');
+
+    AllProducts kidPijamas = AllProducts.fromJson(records.toJson());
+
     notifyListeners();
-    return pijamas;
+    return kidPijamas;
+  }
+
+  Future<AllProducts> adultClothes() async {
+    final records = await pb
+        .collection('products')
+        .getList(filter: 'hay = true && category = "Adulto"');
+
+    AllProducts adultPijamas = AllProducts.fromJson(records.toJson());
+
+    notifyListeners();
+    return adultPijamas;
+  }
+
+  Future<AllProducts> menClothes() async {
+    final records = await pb
+        .collection('products')
+        .getList(filter: 'hay = true && category = "Hombre"');
+
+    AllProducts manPijamas = AllProducts.fromJson(records.toJson());
+
+    notifyListeners();
+    return manPijamas;
   }
 }

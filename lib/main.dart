@@ -1,9 +1,9 @@
 import 'dart:ui';
 
-
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
 import 'package:ropijamas/presentations/providers/data_provider.dart';
+import 'package:ropijamas/presentations/screens/all_products.dart';
 import 'package:ropijamas/presentations/screens/detail_product_screen.dart';
 import 'package:ropijamas/presentations/screens/home_screen.dart';
 
@@ -27,7 +27,9 @@ class MyApp extends StatelessWidget {
         initialRoute: '/',
         routes: {
           '/':(context) => const HomeScreen(),
-          '/details':(context) => const DetailProductScreen()
+          '/details':(context) => const DetailProductScreen(),
+          '/products':(context) => const AllProductos(),
+          
         },
       ),
     );

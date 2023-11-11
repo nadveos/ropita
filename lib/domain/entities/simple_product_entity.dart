@@ -10,6 +10,7 @@ class SimpleProductEntity {
   final String price;
   final String size;
   final DateTime updated;
+  final bool hay;
 
   SimpleProductEntity({
     required this.category,
@@ -23,5 +24,6 @@ class SimpleProductEntity {
     required this.price,
     required this.size,
     required this.updated,
+    required this.hay
   });
 }

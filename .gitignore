@@ -12,7 +12,7 @@
 .pub-cache/
 .pub/
 coverage/
-/test
+/test/
 /build/*
 !/build/web/
 # For library packages, don’t commit the pubspec.lock file.
