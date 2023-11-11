@@ -49,34 +49,21 @@ class _KidsProductsState extends State<KidsProducts> {
                       fit: StackFit.loose,
                       alignment: Alignment.center,
                       children: [
-                        InkWell(
-                          onTap: () {
-                            Navigator.pushNamed(context, '/details', arguments: ropa[index]);
-                          },
-                          child: CachedNetworkImage(
-                            cacheManager: _cacheManager,
-                            imageUrl: ropa[index].getImageUrl(),
-                            key: UniqueKey(),
-                            width: double.infinity,
-                            height: double.infinity,
-                            fit: BoxFit.cover,
-                            
+                        
+                        Ink.image(
+                          width: double.infinity,
+                          height: double.infinity,
+                          fit: BoxFit.cover,
+                          image: NetworkImage(
+                            ropa[index].getImageUrl(),
+                          ),
+                          child: InkWell(
+                            onTap: () {
+                              Navigator.pushNamed(context, '/details',
+                                  arguments: ropa[index]);
+                            },
                           ),
                         ),
-                        // Ink.image(
-                        //   width: double.infinity,
-                        //   height: double.infinity,
-                        //   fit: BoxFit.cover,
-                        //   image: NetworkImage(
-                        //     ropa[index].getImageUrl(),
-                        //   ),
-                        //   child: InkWell(
-                        //     onTap: () {
-                        //       Navigator.pushNamed(context, '/details',
-                        //           arguments: ropa[index]);
-                        //     },
-                        //   ),
-                        // ),
                         Text(
                           ropa[index].name,
                           softWrap: true,
