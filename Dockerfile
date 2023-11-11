@@ -1,5 +1,5 @@
 FROM httpd:alpine
 
-COPY . /usr/local/apache2/htdocs/
+COPY ./build/web /usr/local/apache2/htdocs/
 	
 EXPOSE 80
