@@ -1,6 +1,4 @@
-import 'package:cached_network_image/cached_network_image.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter_cache_manager/flutter_cache_manager.dart';
 import 'package:flutter_spinkit/flutter_spinkit.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:provider/provider.dart';
@@ -18,8 +16,7 @@ class _ManProductsState extends State<ManProducts> {
   ScrollController controller = ScrollController();
 
   List<SimpleProduct> ropa = [];
-static final _cacheManager = CacheManager(Config('onlyMans',
-      stalePeriod: const Duration(days: 15), maxNrOfCacheObjects: 50));
+
   @override
   Widget build(BuildContext context) {
     final data = context.watch<DataProvider>();
