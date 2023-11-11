@@ -24,9 +24,8 @@ class _ClothesState extends State<Clothes> {
   Widget build(BuildContext context) {
     final clothes = context.watch<DataProvider>();
     return FutureBuilder(
-        future: clothes.getAdultClothes(),
+        future: clothes.kidsClothes(),
         builder: (context, snapshot) {
-          
           if (snapshot.hasData) {
             ropa = snapshot.data!.items;
 

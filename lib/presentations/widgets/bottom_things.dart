@@ -14,7 +14,7 @@ class BottomThings extends StatelessWidget {
       children: [
       
         Text(
-          'Diseñado y creado por Gustavo J. Flores',
+          'Designed by Gustavo J. Flores',
           softWrap: true,
           overflow: TextOverflow.fade,
           style: GoogleFonts.montserratAlternates(
@@ -24,24 +24,34 @@ class BottomThings extends StatelessWidget {
         Text(
           'Salta - Argentina ©2023',
           style: GoogleFonts.montserratAlternates(
-              fontSize: 10, color: Colors.white38),
+              fontSize: 14, color: Colors.white38),
         ),
         const Gap(20),
-        TextButton(
-          style: const ButtonStyle(
-              backgroundColor:
-                  MaterialStatePropertyAll(Colors.black54)),
-          
-          onPressed: () {
-            
-          },
-          child: Text(
-            'MEAPP.ONLINE',
-            style: GoogleFonts.montserratAlternates(
+        Row(
+          mainAxisAlignment: MainAxisAlignment.center,
+          children: [
+            Text('Hosted by', style: GoogleFonts.montserratAlternates(
               fontSize: 12,
-              color: Colors.white60,
+              color: Colors.white38
+            ),),
+            const Gap(10),
+            TextButton(
+              style: const ButtonStyle(
+                  backgroundColor:
+                      MaterialStatePropertyAll(Colors.black54)),
+              
+              onPressed: () {
+                
+              },
+              child: Text(
+                'MEAPP.ONLINE',
+                style: GoogleFonts.montserratAlternates(
+                  fontSize: 12,
+                  color: Colors.white60,
+                ),
+              ),
             ),
-          ),
+          ],
         ),
         
         

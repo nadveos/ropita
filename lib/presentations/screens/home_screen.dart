@@ -74,7 +74,7 @@ class LayoutChico extends StatelessWidget {
                     iconSize: 30,
                     color: Colors.white,
                     onPressed: () {
-                      Navigator.popAndPushNamed(context, '/products');
+                      Navigator.pushNamed(context, '/products');
                     },
                     icon: const Icon(FontAwesomeIcons.arrowRight))
               ],

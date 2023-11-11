@@ -3,8 +3,7 @@ import 'package:flutter/material.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:ropijamas/data/models/products_model.dart';
-import 'package:ropijamas/presentations/widgets/bottom_things.dart';
-import 'package:ropijamas/presentations/widgets/launcher_of_urls.dart';
+import 'package:ropijamas/presentations/widgets/widgets.dart';
 
 
 
