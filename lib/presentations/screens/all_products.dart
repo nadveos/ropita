@@ -3,13 +3,21 @@ import 'package:gap/gap.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:ropijamas/presentations/widgets/widgets.dart';
 
-
-class AllProductos extends StatelessWidget {
+class AllProductos extends StatefulWidget {
   const AllProductos({super.key});
+
+  @override
+  State<AllProductos> createState() => _AllProductosState();
+}
+
+class _AllProductosState extends State<AllProductos> {
+  
+    
 
   @override
   Widget build(BuildContext context) {
     ScrollController controller = ScrollController();
+    
     return Container(
         width: double.infinity,
         height: double.infinity,
@@ -24,20 +32,19 @@ class AllProductos extends StatelessWidget {
         child: Scaffold(
           backgroundColor: Colors.transparent,
           appBar: AppBar(
-            
             elevation: 0,
             backgroundColor: Colors.transparent,
-            title: Text('Elegí tu ropita'.toUpperCase(), style: GoogleFonts.montserrat(
-              color: Colors.white70
-            ),),
-          centerTitle: true,
+            title: Text(
+              'Elegí tu ropita'.toUpperCase(),
+              style: GoogleFonts.montserrat(color: Colors.white70),
+            ),
+            centerTitle: true,
           ),
           body: SingleChildScrollView(
             controller: controller,
             scrollDirection: Axis.vertical,
             child: Column(
               children: [
-
                 // only man´s products
                 Column(
                   children: [
@@ -56,7 +63,7 @@ class AllProductos extends StatelessWidget {
                         child: ManProducts()),
                   ],
                 ),
-                // kids categoty
+                // // // kids categoty
                 Column(
                   children: [
                     const Gap(20),
@@ -92,7 +99,6 @@ class AllProductos extends StatelessWidget {
                         child: AdultProducts()),
                   ],
                 ),
-                
               ],
             ),
           ),

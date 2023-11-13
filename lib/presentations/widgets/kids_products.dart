@@ -1,9 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_spinkit/flutter_spinkit.dart';
 import 'package:google_fonts/google_fonts.dart';
-import 'package:provider/provider.dart';
 import 'package:ropijamas/data/models/products_model.dart';
-import 'package:ropijamas/presentations/providers/data_provider.dart';
+import 'package:ropijamas/presentations/services/services.dart';
 
 class KidsProducts extends StatefulWidget {
   const KidsProducts({super.key});
@@ -16,12 +15,11 @@ class _KidsProductsState extends State<KidsProducts> {
   ScrollController controller = ScrollController();
 
   List<SimpleProduct> ropa = [];
-  
+  Services servicio = Services();
   @override
   Widget build(BuildContext context) {
-    final data = context.watch<DataProvider>();
     return FutureBuilder(
-      future: data.kidsClothes(),
+      future: servicio.kidsClothes(),
       builder: (context, snapshot) {
         if (snapshot.hasData) {
           ropa = snapshot.data!.items;
@@ -46,7 +44,6 @@ class _KidsProductsState extends State<KidsProducts> {
                       fit: StackFit.loose,
                       alignment: Alignment.center,
                       children: [
-                        
                         Ink.image(
                           width: double.infinity,
                           height: double.infinity,
@@ -66,7 +63,7 @@ class _KidsProductsState extends State<KidsProducts> {
                           softWrap: true,
                           overflow: TextOverflow.fade,
                           style: GoogleFonts.montserrat(
-                              color: Colors.white,
+                              color: Colors.black,
                               fontWeight: FontWeight.bold,
                               fontSize: 20),
                         ),
