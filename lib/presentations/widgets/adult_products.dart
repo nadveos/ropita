@@ -1,11 +1,8 @@
-import 'package:cached_network_image/cached_network_image.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter_cache_manager/flutter_cache_manager.dart';
 import 'package:flutter_spinkit/flutter_spinkit.dart';
 import 'package:google_fonts/google_fonts.dart';
-import 'package:provider/provider.dart';
 import 'package:ropijamas/data/models/products_model.dart';
-import 'package:ropijamas/presentations/providers/data_provider.dart';
+import 'package:ropijamas/presentations/services/services.dart';
 
 class AdultProducts extends StatefulWidget {
   const AdultProducts({super.key});
@@ -18,15 +15,16 @@ class _AdultProductsState extends State<AdultProducts> {
   ScrollController controller = ScrollController();
 
   List<SimpleProduct> ropa = [];
-  static final _cacheManager = CacheManager(Config('adultProducts',
-      stalePeriod: const Duration(days: 15), maxNrOfCacheObjects: 50));
+
+  Services servicio =  Services();
   @override
   Widget build(BuildContext context) {
-    final data = context.watch<DataProvider>();
+    // final data = context.watch<DataProvider>();
     return FutureBuilder(
-      future: data.adultClothes(),
+      future: servicio.adultClothes(),
       builder: (context, snapshot) {
         if (snapshot.hasData) {
+          
           ropa = snapshot.data!.items;
           return ListView.builder(
             controller: controller,
@@ -37,7 +35,7 @@ class _AdultProductsState extends State<AdultProducts> {
                 tag: ropa[index].id,
                 child: SizedBox(
                   width: 240,
-                  height: 180,
+                  height: 200,
                   child: Card(
                     elevation: 0,
                     shape: RoundedRectangleBorder(
@@ -49,10 +47,10 @@ class _AdultProductsState extends State<AdultProducts> {
                       fit: StackFit.loose,
                       alignment: Alignment.center,
                       children: [
-                        
                         Ink.image(
+
                           width: double.infinity,
-                          height: double.infinity,
+                          height:double.infinity,
                           fit: BoxFit.cover,
                           image: NetworkImage(
                             ropa[index].getImageUrl(),
@@ -69,7 +67,7 @@ class _AdultProductsState extends State<AdultProducts> {
                           softWrap: true,
                           overflow: TextOverflow.fade,
                           style: GoogleFonts.montserrat(
-                              color: Colors.white,
+                              color: Colors.black,
                               fontWeight: FontWeight.bold,
                               fontSize: 20),
                         ),

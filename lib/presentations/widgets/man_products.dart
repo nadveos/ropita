@@ -1,11 +1,8 @@
-import 'package:cached_network_image/cached_network_image.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter_cache_manager/flutter_cache_manager.dart';
 import 'package:flutter_spinkit/flutter_spinkit.dart';
 import 'package:google_fonts/google_fonts.dart';
-import 'package:provider/provider.dart';
 import 'package:ropijamas/data/models/products_model.dart';
-import 'package:ropijamas/presentations/providers/data_provider.dart';
+import 'package:ropijamas/presentations/services/services.dart';
 
 class ManProducts extends StatefulWidget {
   const ManProducts({super.key});
@@ -18,13 +15,12 @@ class _ManProductsState extends State<ManProducts> {
   ScrollController controller = ScrollController();
 
   List<SimpleProduct> ropa = [];
-static final _cacheManager = CacheManager(Config('onlyMans',
-      stalePeriod: const Duration(days: 15), maxNrOfCacheObjects: 50));
+  Services servicio = Services();
   @override
   Widget build(BuildContext context) {
-    final data = context.watch<DataProvider>();
+   
     return FutureBuilder(
-      future: data.menClothes(),
+      future: servicio.menClothes(),
       builder: (context, snapshot) {
         if (snapshot.hasData) {
           ropa = snapshot.data!.items;
@@ -49,7 +45,6 @@ static final _cacheManager = CacheManager(Config('onlyMans',
                       fit: StackFit.loose,
                       alignment: Alignment.center,
                       children: [
-                        
                         Ink.image(
                           width: double.infinity,
                           height: double.infinity,
@@ -69,7 +64,7 @@ static final _cacheManager = CacheManager(Config('onlyMans',
                           softWrap: true,
                           overflow: TextOverflow.fade,
                           style: GoogleFonts.montserrat(
-                              color: Colors.white,
+                              color: Colors.black,
                               fontWeight: FontWeight.bold,
                               fontSize: 20),
                         ),
