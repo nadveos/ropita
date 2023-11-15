@@ -1,57 +1,49 @@
 import 'package:pocketbase/pocketbase.dart';
 import 'package:ropijamas/data/models/products_model.dart';
 
-class Services{
-final pb = PocketBase('https://ropita.meapp.online');
+class Services {
+  final pb = PocketBase('https://ropita.meapp.online');
 
-
- Future<AllProducts> getAllClothes() async {
+  Future<AllProducts> getAllClothes() async {
     final records =
         await pb.collection('products').getList(filter: 'hay = true');
 
     AllProducts pijamas = AllProducts.fromJson(records.toJson());
-    
+
     return pijamas;
   }
 
   //kids
 
   Future<AllProducts> kidsClothes() async {
-   
-
     final records = await pb.collection('products').getList(
           filter: 'hay = true && category = "Infantil"',
         );
 
     AllProducts kidPijamas = AllProducts.fromJson(records.toJson());
 
-    
     return kidPijamas;
   }
 
 //adult
   Future<AllProducts> adultClothes() async {
-  
     final records = await pb
         .collection('products')
         .getList(filter: 'hay = true && category = "Adulto"');
 
     AllProducts adultPijamas = AllProducts.fromJson(records.toJson());
 
-       return adultPijamas;
+    return adultPijamas;
   }
 
 //only mans
   Future<AllProducts> menClothes() async {
- 
     final records = await pb
         .collection('products')
         .getList(filter: 'hay = true && category = "Hombre"');
 
     AllProducts manPijamas = AllProducts.fromJson(records.toJson());
 
-    
     return manPijamas;
   }
-
 }

@@ -11,13 +11,10 @@ class AllProductos extends StatefulWidget {
 }
 
 class _AllProductosState extends State<AllProductos> {
-  
-    
-
   @override
   Widget build(BuildContext context) {
     ScrollController controller = ScrollController();
-    
+
     return Container(
         width: double.infinity,
         height: double.infinity,
@@ -30,6 +27,20 @@ class _AllProductosState extends State<AllProductos> {
           ),
         ),
         child: Scaffold(
+          floatingActionButtonLocation:
+              FloatingActionButtonLocation.centerFloat,
+          floatingActionButton: ElevatedButton(
+              style: ButtonStyle(
+                backgroundColor:
+                    MaterialStateProperty.all<Color>(Colors.black54),
+              ),
+              onPressed: () {
+                Navigator.pushNamed(context, '/gallery');
+              },
+              child: Text(
+                'Ver Todo',
+                style: GoogleFonts.montserrat(color: Colors.white70, fontWeight: FontWeight.bold),
+              )),
           backgroundColor: Colors.transparent,
           appBar: AppBar(
             elevation: 0,

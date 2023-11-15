@@ -63,7 +63,14 @@ class _KidsProductsState extends State<KidsProducts> {
                           softWrap: true,
                           overflow: TextOverflow.fade,
                           style: GoogleFonts.montserrat(
-                              color: Colors.black,
+                              color: Colors.white,
+                              shadows: [
+                                  const Shadow(
+                                    blurRadius: 10.0,
+                                    color: Colors.black,
+                                    offset: Offset(3.0, 3.0),
+                                  ),
+                                ],
                               fontWeight: FontWeight.bold,
                               fontSize: 20),
                         ),
