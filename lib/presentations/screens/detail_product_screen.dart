@@ -39,6 +39,7 @@ class _DetailProductScreenState extends State<DetailProductScreen> {
             SliverAppBar(
               expandedHeight: 380,
               pinned: true,
+              foregroundColor: Colors.white,
               flexibleSpace: Material(
                 child: InkWell(
                   child: Hero(

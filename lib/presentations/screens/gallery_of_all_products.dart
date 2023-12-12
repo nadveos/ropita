@@ -32,81 +32,171 @@ class _GalleryOfAllProductsState extends State<GalleryOfAllProducts> {
       child: Scaffold(
         backgroundColor: Colors.transparent,
         appBar: AppBar(
-          centerTitle: true,
+          
+            centerTitle: true,
             elevation: 0,
             backgroundColor: Colors.transparent,
-            title: Text('Galeria de Ropita'.toUpperCase(),
-              style: GoogleFonts.montserrat(color: Colors.white70),)),
+            foregroundColor: Colors.white,
+            title: Text(
+              'Galeria de Ropita'.toUpperCase(),
+              style: GoogleFonts.montserrat(color: Colors.white70),
+            )),
         body: FutureBuilder(
             future: data.getAllClothes(),
             builder: (context, snapshot) {
               if (snapshot.hasData) {
                 ropa = snapshot.data!.items;
-                return MasonryGridView.builder(
-                  itemCount: ropa.length,
-                  gridDelegate:
-                      const SliverSimpleGridDelegateWithFixedCrossAxisCount(
-                          crossAxisCount: 3),
-                  itemBuilder: (context, index) {
-                    return Hero(
-                      tag: ropa[index].id,
-                      child: SizedBox(
-                        width: 240,
-                        height: 200,
-                        child: Card(
-                          elevation: 0,
-                          shape: RoundedRectangleBorder(
-                              borderRadius: BorderRadius.circular(15)),
-                          margin: const EdgeInsets.symmetric(
-                              vertical: 5, horizontal: 15),
-                          clipBehavior: Clip.antiAlias,
-                          child: Stack(
-                            fit: StackFit.loose,
-                            alignment: Alignment.center,
-                            children: [
-                              Ink.image(
-                                width: double.infinity,
-                                height: double.infinity,
-                                fit: BoxFit.cover,
-                                image: NetworkImage(
-                                  ropa[index].getImageUrl(),
-                                ),
-                                child: InkWell(
-                                  onTap: () {
-                                    Navigator.pushNamed(context, '/details',
-                                        arguments: ropa[index]);
-                                  },
+                return LayoutBuilder(
+                  builder: (context, constraints) {
+                    if (constraints.maxWidth < 600) {
+                      return MasonryGridView.builder(
+                        itemCount: ropa.length,
+                        gridDelegate:
+                            SliverSimpleGridDelegateWithFixedCrossAxisCount(
+                                crossAxisCount:
+                                    constraints.maxWidth < 350 ? 1 : 2),
+                        itemBuilder: (context, index) {
+                          return Hero(
+                            tag: ropa[index].id,
+                            child: SizedBox(
+                              width: 240,
+                              height: 200,
+                              child: Card(
+                                elevation: 0,
+                                shape: RoundedRectangleBorder(
+                                    borderRadius: BorderRadius.circular(15)),
+                                margin: const EdgeInsets.symmetric(
+                                    vertical: 5, horizontal: 15),
+                                clipBehavior: Clip.antiAlias,
+                                child: Stack(
+                                  fit: StackFit.loose,
+                                  alignment: Alignment.center,
+                                  children: [
+                                    Ink.image(
+                                      width: double.infinity,
+                                      height: double.infinity,
+                                      fit: BoxFit.cover,
+                                      image: NetworkImage(
+                                        ropa[index].getImageUrl(),
+                                      ),
+                                      child: InkWell(
+                                        onTap: () {
+                                          Navigator.pushNamed(
+                                              context, '/details',
+                                              arguments: ropa[index]);
+                                        },
+                                      ),
+                                    ),
+                                    Text(
+                                      ropa[index].name,
+                                      softWrap: true,
+                                      overflow: TextOverflow.fade,
+                                      style: GoogleFonts.montserrat(
+                                          color: Colors.white70,
+                                          shadows: [
+                                            const Shadow(
+                                              blurRadius: 10.0,
+                                              color: Colors.black,
+                                              offset: Offset(3.0, 3.0),
+                                            ),
+                                          ],
+                                          fontWeight: FontWeight.bold,
+                                          fontSize: 20),
+                                    ),
+                                    Positioned(
+                                      bottom: 10,
+                                      left: 10,
+                                      child: Chip(
+                                        elevation: 0,
+                                        backgroundColor: Colors.purple[200],
+                                        labelPadding: const EdgeInsets.all(2),
+                                        label: Text(
+                                          ropa[index].category.toUpperCase(),
+                                          style: GoogleFonts.montserrat(
+                                              color: Colors.black87),
+                                        ),
+                                      ),
+                                    )
+                                  ],
                                 ),
                               ),
-                              Text(
-                                ropa[index].name,
-                                softWrap: true,
-                                overflow: TextOverflow.fade,
-                                style: GoogleFonts.montserrat(
-                                    color: Colors.white70,
-                                    shadows: [
-                                  const Shadow(
-                                    blurRadius: 10.0,
-                                    color: Colors.black,
-                                    offset: Offset(3.0, 3.0),
+                            ),
+                          );
+                        },
+                      );
+                    }
+                    return MasonryGridView.builder(
+                      itemCount: ropa.length,
+                      gridDelegate:
+                          SliverSimpleGridDelegateWithFixedCrossAxisCount(
+                              crossAxisCount:
+                                  constraints.maxWidth > 1280 ? 4 : 3),
+                      itemBuilder: (context, index) {
+                        return Hero(
+                          tag: ropa[index].id,
+                          child: SizedBox(
+                            width: 240,
+                            height: 200,
+                            child: Card(
+                              elevation: 0,
+                              shape: RoundedRectangleBorder(
+                                  borderRadius: BorderRadius.circular(15)),
+                              margin: const EdgeInsets.symmetric(
+                                  vertical: 5, horizontal: 15),
+                              clipBehavior: Clip.antiAlias,
+                              child: Stack(
+                                fit: StackFit.loose,
+                                alignment: Alignment.center,
+                                children: [
+                                  Ink.image(
+                                    width: double.infinity,
+                                    height: double.infinity,
+                                    fit: BoxFit.cover,
+                                    image: NetworkImage(
+                                      ropa[index].getImageUrl(),
+                                    ),
+                                    child: InkWell(
+                                      onTap: () {
+                                        Navigator.pushNamed(context, '/details',
+                                            arguments: ropa[index]);
+                                      },
+                                    ),
                                   ),
+                                  Text(
+                                    ropa[index].name,
+                                    softWrap: true,
+                                    overflow: TextOverflow.fade,
+                                    style: GoogleFonts.montserrat(
+                                        color: Colors.white70,
+                                        shadows: [
+                                          const Shadow(
+                                            blurRadius: 10.0,
+                                            color: Colors.black,
+                                            offset: Offset(3.0, 3.0),
+                                          ),
+                                        ],
+                                        fontWeight: FontWeight.bold,
+                                        fontSize: 20),
+                                  ),
+                                  Positioned(
+                                    bottom: 10,
+                                    left: 10,
+                                    child: Chip(
+                                      backgroundColor: Colors.purple[200],
+                                      labelPadding: const EdgeInsets.all(2),
+                                      label: Text(
+                                        ropa[index].category.toUpperCase(),
+                                        style: GoogleFonts.montserrat(
+                                            color: Colors.black87),
+                                      ),
+                                    ),
+                                  )
                                 ],
-                                    fontWeight: FontWeight.bold,
-                                    fontSize: 20),
                               ),
-                              Positioned(
-                                bottom: 10,
-                                left: 10,
-                                
-                                child: Chip(
-                                backgroundColor: Colors.deepPurple,
-                                labelPadding: const EdgeInsets.all(2),
-                                
-                                label: Text(ropa[index].category.toLowerCase(), style: GoogleFonts.montserrat(color: Colors.white70),),),)
-                            ],
+                            ),
                           ),
-                        ),
-                      ),
+                        );
+                      },
                     );
                   },
                 );

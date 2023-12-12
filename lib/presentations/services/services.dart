@@ -6,7 +6,7 @@ class Services {
 
   Future<AllProducts> getAllClothes() async {
     final records =
-        await pb.collection('products').getList(filter: 'hay = true');
+        await pb.collection('products').getList(filter: 'hay = true',perPage: 100);
 
     AllProducts pijamas = AllProducts.fromJson(records.toJson());
 

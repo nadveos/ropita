@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:gap/gap.dart';
 import 'package:google_fonts/google_fonts.dart';
+import 'package:ropijamas/presentations/widgets/slider_products.dart';
 import 'package:ropijamas/presentations/widgets/widgets.dart';
 
 class AllProductos extends StatefulWidget {
@@ -14,7 +15,6 @@ class _AllProductosState extends State<AllProductos> {
   @override
   Widget build(BuildContext context) {
     ScrollController controller = ScrollController();
-
     return Container(
         width: double.infinity,
         height: double.infinity,
@@ -39,12 +39,14 @@ class _AllProductosState extends State<AllProductos> {
               },
               child: Text(
                 'Ver Todo',
-                style: GoogleFonts.montserrat(color: Colors.white70, fontWeight: FontWeight.bold),
+                style: GoogleFonts.montserrat(
+                    color: Colors.white70, fontWeight: FontWeight.bold),
               )),
           backgroundColor: Colors.transparent,
           appBar: AppBar(
             elevation: 0,
             backgroundColor: Colors.transparent,
+            foregroundColor: Colors.white,
             title: Text(
               'Elegí tu ropita'.toUpperCase(),
               style: GoogleFonts.montserrat(color: Colors.white70),
@@ -56,6 +58,8 @@ class _AllProductosState extends State<AllProductos> {
             scrollDirection: Axis.vertical,
             child: Column(
               children: [
+                const SliderShow(),
+                const Gap(10),
                 // only man´s products
                 Column(
                   children: [

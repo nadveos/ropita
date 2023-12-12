@@ -89,7 +89,7 @@ class SimpleProduct {
         price: json["price"],
         size: json["size"],
         updated: DateTime.parse(json["updated"]), 
-        hay: true 
+        hay: true
       );
 
   Map<String, dynamic> toJson() => {

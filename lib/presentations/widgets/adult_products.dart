@@ -26,64 +26,72 @@ class _AdultProductsState extends State<AdultProducts> {
         if (snapshot.hasData) {
           
           ropa = snapshot.data!.items;
-          return ListView.builder(
-            controller: controller,
-            scrollDirection: Axis.horizontal,
-            itemCount: ropa.length,
-            itemBuilder: (context, index) {
-              return Hero(
-                tag: ropa[index].id,
-                child: SizedBox(
-                  width: 240,
-                  height: 200,
-                  child: Card(
-                    elevation: 0,
-                    shape: RoundedRectangleBorder(
-                        borderRadius: BorderRadius.circular(15)),
-                    margin:
-                        const EdgeInsets.symmetric(vertical: 5, horizontal: 15),
-                    clipBehavior: Clip.antiAlias,
-                    child: Stack(
-                      fit: StackFit.loose,
-                      alignment: Alignment.center,
-                      children: [
-                        Ink.image(
-
-                          width: double.infinity,
-                          height:double.infinity,
-                          fit: BoxFit.cover,
-                          image: NetworkImage(
-                            ropa[index].getImageUrl(),
+          return Scrollbar(
+            trackVisibility: true,
+            thumbVisibility: true,
+            child: ListView.builder(
+              padding: const EdgeInsets.symmetric(vertical:10),
+              controller: controller,
+              scrollDirection: Axis.horizontal,
+              itemCount: ropa.length,
+              itemBuilder: (context, index) {
+                return Hero(
+                  tag: ropa[index].id,
+                  child: SizedBox(
+                    width: 210,
+                    // height: 200,
+                    child: Card(
+                      elevation: 0,
+                      shape: RoundedRectangleBorder(
+                          borderRadius: BorderRadius.circular(15)),
+                      margin:
+                          const EdgeInsets.symmetric(vertical: 5, horizontal: 15),
+                      clipBehavior: Clip.antiAlias,
+                      child: Stack(
+                        fit: StackFit.loose,
+                        alignment: Alignment.bottomCenter,
+                        children: [
+                          Ink.image(
+            
+                            width: double.infinity,
+                            height:double.infinity,
+                            fit: BoxFit.cover,
+                            image: NetworkImage(
+                              ropa[index].getImageUrl(),
+                            ),
+                            child: InkWell(
+                              onTap: () {
+                                Navigator.pushNamed(context, '/details',
+                                    arguments: ropa[index]);
+                              },
+                            ),
                           ),
-                          child: InkWell(
-                            onTap: () {
-                              Navigator.pushNamed(context, '/details',
-                                  arguments: ropa[index]);
-                            },
+                          Padding(
+                            padding: const EdgeInsets.all(8.0),
+                            child: Text(
+                              ropa[index].name,
+                              softWrap: true,
+                              overflow: TextOverflow.fade,
+                              style: GoogleFonts.montserrat(
+                                  color: Colors.white70,
+                                  shadows: [
+                                      const Shadow(
+                                        blurRadius: 10.0,
+                                        color: Colors.black,
+                                        offset: Offset(3.0, 3.0),
+                                      ),
+                                    ],
+                                  fontWeight: FontWeight.bold,
+                                  fontSize: 16),
+                            ),
                           ),
-                        ),
-                        Text(
-                          ropa[index].name,
-                          softWrap: true,
-                          overflow: TextOverflow.fade,
-                          style: GoogleFonts.montserrat(
-                              color: Colors.white70,
-                              shadows: [
-                                  const Shadow(
-                                    blurRadius: 10.0,
-                                    color: Colors.black,
-                                    offset: Offset(3.0, 3.0),
-                                  ),
-                                ],
-                              fontWeight: FontWeight.bold,
-                              fontSize: 20),
-                        ),
-                      ],
+                        ],
+                      ),
                     ),
                   ),
-                ),
-              );
-            },
+                );
+              },
+            ),
           );
         }
         return const Center(
