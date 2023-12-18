@@ -1,5 +1,5 @@
 import 'package:pocketbase/pocketbase.dart';
-import 'package:ropijamas/data/models/products_model.dart';
+import 'package:ropijamas/infrastructure/models/products_model.dart';
 
 class Services {
   final pb = PocketBase('https://ropita.meapp.online');

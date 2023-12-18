@@ -1,3 +1,4 @@
+import 'package:animated_text_kit/animated_text_kit.dart';
 import 'package:flutter/material.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 import 'package:gap/gap.dart';
@@ -44,7 +45,7 @@ class LayoutChico extends StatelessWidget {
         scrollDirection: Axis.vertical,
         controller: controller,
         child: Column(
-          mainAxisAlignment: MainAxisAlignment.spaceAround,
+          mainAxisAlignment: MainAxisAlignment.center,
           children: [
             Column(
               mainAxisAlignment: MainAxisAlignment.center,
@@ -59,17 +60,28 @@ class LayoutChico extends StatelessWidget {
                 ),
                 Text(
                   'LENA',
+                 
                   style: GoogleFonts.montserrat(
                       color: Colors.white,
                       fontSize: 60,
                       fontWeight: FontWeight.bold),
                 ),
-                Text(
-                  'Ropita comoda...',
-                  style: GoogleFonts.montserrat(
+                AnimatedTextKit(
+                  
+                  animatedTexts: [
+                
+                TypewriterAnimatedText(
+                  'Ropita cómoda...',
+                  
+                  speed: const Duration(milliseconds: 300),
+                  textStyle: GoogleFonts.montserrat(
                       fontSize: 30, color: Colors.white70),
                 ),
-                const Gap(30),
+
+
+
+                ]),
+                const Gap(5),
                 IconButton.outlined(
                     iconSize: 30,
                     color: Colors.white,
@@ -79,7 +91,8 @@ class LayoutChico extends StatelessWidget {
                     icon: const Icon(FontAwesomeIcons.arrowRight))
               ],
             ),
-            const Gap(50),
+            const Gap(15),
+            
             const BottomThings()
           ],
         ),

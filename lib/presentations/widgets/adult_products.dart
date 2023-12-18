@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_spinkit/flutter_spinkit.dart';
 import 'package:google_fonts/google_fonts.dart';
-import 'package:ropijamas/data/models/products_model.dart';
+import 'package:ropijamas/infrastructure/models/simple_product_model.dart';
 import 'package:ropijamas/presentations/services/services.dart';
 
 class AdultProducts extends StatefulWidget {

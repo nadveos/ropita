@@ -1,0 +1,10 @@
+import 'package:ropijamas/domain/entities/simple_product_entity.dart';
+
+abstract class SimpleProductRepository {
+
+  Future<List<SimpleProductEntity>> getKidsProducts();
+  Future<List<SimpleProductEntity>> getManProducts();
+  Future<List<SimpleProductEntity>> getAdultProducts();
+  Future<List<SimpleProductEntity>> getAllProducts();
+
+}

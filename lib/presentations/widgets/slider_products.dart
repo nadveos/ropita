@@ -1,6 +1,6 @@
 import 'package:card_swiper/card_swiper.dart';
 import 'package:flutter/material.dart';
-import 'package:ropijamas/data/models/products_model.dart';
+import 'package:ropijamas/infrastructure/models/simple_product_model.dart';
 import 'package:ropijamas/presentations/services/services.dart';
 
 class SliderShow extends StatefulWidget {
