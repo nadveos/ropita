@@ -23,7 +23,7 @@ class MyApp extends StatelessWidget {
         },
       ),
       debugShowCheckedModeBanner: false,
-      title: 'Ropijamas',
+      title: 'Lena',
       initialRoute: '/',
       routes: {
         '/': (context) => const HomeScreen(),

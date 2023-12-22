@@ -50,6 +50,7 @@ class _GalleryOfAllProductsState extends State<GalleryOfAllProducts> {
                   builder: (context, constraints) {
                     if (constraints.maxWidth < 600) {
                       return MasonryGridView.builder(
+
                         itemCount: ropa.length,
                         gridDelegate:
                             SliverSimpleGridDelegateWithFixedCrossAxisCount(
@@ -62,6 +63,7 @@ class _GalleryOfAllProductsState extends State<GalleryOfAllProducts> {
                               width: 240,
                               height: 200,
                               child: Card(
+                                
                                 elevation: 0,
                                 shape: RoundedRectangleBorder(
                                     borderRadius: BorderRadius.circular(15)),
