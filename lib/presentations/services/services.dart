@@ -2,7 +2,7 @@ import 'package:pocketbase/pocketbase.dart';
 import 'package:ropijamas/infrastructure/models/products_model.dart';
 
 class Services {
-  final pb = PocketBase('https://ropita.meapp.online');
+  final pb = PocketBase('https://lena.meapp.com.ar');
 
   Future<AllProducts> getAllClothes() async {
     final records =
