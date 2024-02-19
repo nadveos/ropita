@@ -59,7 +59,7 @@ class SimpleProduct {
     if (image == '') {
       return 'https://miro.medium.com/max/500/0*-ouKIOsDCzVCTjK-.png';
     } else {
-      return 'https://ropita.meapp.online/api/files/$collectionId/$id/$image';
+      return 'https://lena.meapp.com.ar/api/files/$collectionId/$id/$image';
     }
   }
 
