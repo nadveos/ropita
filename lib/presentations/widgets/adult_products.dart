@@ -27,6 +27,7 @@ class _AdultProductsState extends State<AdultProducts> {
           
           ropa = snapshot.data!.items;
           return Scrollbar(
+            controller: controller,
             trackVisibility: true,
             thumbVisibility: true,
             child: ListView.builder(
@@ -52,7 +53,7 @@ class _AdultProductsState extends State<AdultProducts> {
                         alignment: Alignment.bottomCenter,
                         children: [
                           Ink.image(
-            
+                            
                             width: double.infinity,
                             height:double.infinity,
                             fit: BoxFit.cover,

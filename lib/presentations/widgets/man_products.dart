@@ -23,6 +23,7 @@ class _ManProductsState extends State<ManProducts> {
         if (snapshot.hasData) {
           ropa = snapshot.data!.items;
           return Scrollbar(
+            controller: controller,
             trackVisibility: true,
             thumbVisibility: true,
             child: ListView.builder(
