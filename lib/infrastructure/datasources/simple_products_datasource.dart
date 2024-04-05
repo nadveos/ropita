@@ -8,32 +8,36 @@ final pb = PocketBase(Enviroment.apiUrl);
 class ProductsDataSource extends SimpleProductDataSource {
   @override
   Future<AllProducts> getAdultProducts() async {
-    final adults =
-        await pb.collection('products').getList(filter: 'hay == true && category = "Adulto"');
+    final adults = await pb
+        .collection('products')
+        .getList(filter: 'hay == true && category = "Adulto"');
     AllProducts adultPijamas = AllProducts.fromJson(adults.toJson());
-     return adultPijamas;
+    return adultPijamas;
   }
-
 
   @override
   Future<AllProducts> getKidsProducts() async {
-     final kids =
-        await pb.collection('products').getList(filter: 'hay == true && category = "Infantil"');
+    final kids = await pb
+        .collection('products')
+        .getList(filter: 'hay == true && category = "Infantil"');
     AllProducts kidsPijamas = AllProducts.fromJson(kids.toJson());
-     return kidsPijamas;
+    return kidsPijamas;
   }
 
   @override
-  Future<AllProducts> getManProducts() async{
-     final mans =
-        await pb.collection('products').getList(filter: 'hay == true && category = "Hombre"');
+  Future<AllProducts> getManProducts() async {
+    final mans = await pb
+        .collection('products')
+        .getList(filter: 'hay == true && category = "Hombre"');
     AllProducts mansPijamas = AllProducts.fromJson(mans.toJson());
-     return mansPijamas;
+    return mansPijamas;
   }
+
   @override
-  Future<AllProducts> getAllProducts() async{
-    final records =
-        await pb.collection('products').getList(filter: 'hay = true',perPage: 100);
+  Future<AllProducts> getAllProducts() async {
+    final records = await pb
+        .collection('products')
+        .getList(filter: 'hay = true', perPage: 100);
 
     AllProducts pijamas = AllProducts.fromJson(records.toJson());
 

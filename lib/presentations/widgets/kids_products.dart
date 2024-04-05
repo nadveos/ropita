@@ -28,7 +28,7 @@ class _KidsProductsState extends State<KidsProducts> {
             trackVisibility: true,
             thumbVisibility: true,
             child: ListView.builder(
-              padding: const EdgeInsets.symmetric(vertical:10),
+              padding: const EdgeInsets.symmetric(vertical: 10),
               controller: controller,
               scrollDirection: Axis.horizontal,
               itemCount: ropa.length,
@@ -37,52 +37,66 @@ class _KidsProductsState extends State<KidsProducts> {
                   tag: ropa[index].id,
                   child: SizedBox(
                     width: 210,
-                    height: 180,
+                    // height: 180,
                     child: Card(
+                      color: Colors.transparent,
                       elevation: 0,
                       shape: RoundedRectangleBorder(
                           borderRadius: BorderRadius.circular(15)),
-                      margin:
-                          const EdgeInsets.symmetric(vertical: 5, horizontal: 15),
+                      margin: const EdgeInsets.symmetric(
+                          vertical: 5, horizontal: 15),
                       clipBehavior: Clip.antiAlias,
-                      child: Stack(
-                        fit: StackFit.loose,
-                        alignment: Alignment.bottomCenter,
-                        children: [
-                          Ink.image(
-                            width: double.infinity,
-                            height: double.infinity,
-                            fit: BoxFit.cover,
-                            image: NetworkImage(
-                              ropa[index].getImageUrl(),
+                      child: GestureDetector(
+                        onTap: () {
+                          Navigator.pushNamed(context, '/details',
+                              arguments: ropa[index]);
+                        },
+                        child: Stack(
+                          fit: StackFit.loose,
+                          alignment: Alignment.bottomCenter,
+                          children: [
+                            ClipRRect(
+                              clipBehavior: Clip.antiAlias,
+                              borderRadius: BorderRadius.circular(15),
+                              child: Image.network(
+                                ropa[index].getImageUrl(),
+                                width: double.infinity,
+                                height: double.infinity,
+                                fit: BoxFit.cover,
+                                loadingBuilder:
+                                    (context, child, loadingProgress) {
+                                  if (loadingProgress != null) {
+                                    return Center(
+                                      child: SpinKitRotatingCircle(
+                                        color: Colors.yellow[300],
+                                      ),
+                                    );
+                                  }
+                                  return child;
+                                },
+                              ),
                             ),
-                            child: InkWell(
-                              onTap: () {
-                                Navigator.pushNamed(context, '/details',
-                                    arguments: ropa[index]);
-                              },
-                            ),
-                          ),
-                          Padding(
-                            padding: const EdgeInsets.all(8.0),
-                            child: Text(
-                              ropa[index].name,
-                              softWrap: true,
-                              overflow: TextOverflow.fade,
-                              style: GoogleFonts.montserrat(
-                                  color: Colors.white,
-                                  shadows: [
+                            Padding(
+                              padding: const EdgeInsets.all(8.0),
+                              child: Text(
+                                ropa[index].name,
+                                softWrap: true,
+                                overflow: TextOverflow.fade,
+                                style: GoogleFonts.montserrat(
+                                    color: Colors.white,
+                                    shadows: [
                                       const Shadow(
                                         blurRadius: 10.0,
                                         color: Colors.black,
                                         offset: Offset(3.0, 3.0),
                                       ),
                                     ],
-                                  fontWeight: FontWeight.bold,
-                                  fontSize: 16),
+                                    fontWeight: FontWeight.bold,
+                                    fontSize: 16),
+                              ),
                             ),
-                          ),
-                        ],
+                          ],
+                        ),
                       ),
                     ),
                   ),

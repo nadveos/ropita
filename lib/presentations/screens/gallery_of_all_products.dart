@@ -32,7 +32,6 @@ class _GalleryOfAllProductsState extends State<GalleryOfAllProducts> {
       child: Scaffold(
         backgroundColor: Colors.transparent,
         appBar: AppBar(
-          
             centerTitle: true,
             elevation: 0,
             backgroundColor: Colors.transparent,
@@ -50,7 +49,6 @@ class _GalleryOfAllProductsState extends State<GalleryOfAllProducts> {
                   builder: (context, constraints) {
                     if (constraints.maxWidth < 600) {
                       return MasonryGridView.builder(
-
                         itemCount: ropa.length,
                         gridDelegate:
                             SliverSimpleGridDelegateWithFixedCrossAxisCount(
@@ -63,63 +61,59 @@ class _GalleryOfAllProductsState extends State<GalleryOfAllProducts> {
                               width: 240,
                               height: 200,
                               child: Card(
-                                
+                                color: Colors.transparent,
                                 elevation: 0,
                                 shape: RoundedRectangleBorder(
                                     borderRadius: BorderRadius.circular(15)),
                                 margin: const EdgeInsets.symmetric(
                                     vertical: 5, horizontal: 15),
                                 clipBehavior: Clip.antiAlias,
-                                child: Stack(
-                                  fit: StackFit.loose,
-                                  alignment: Alignment.center,
-                                  children: [
-                                    Ink.image(
-                                      width: double.infinity,
-                                      height: double.infinity,
-                                      fit: BoxFit.cover,
-                                      image: NetworkImage(
-                                        ropa[index].getImageUrl(),
-                                      ),
-                                      child: InkWell(
-                                        onTap: () {
-                                          Navigator.pushNamed(
-                                              context, '/details',
-                                              arguments: ropa[index]);
-                                        },
-                                      ),
-                                    ),
-                                    Text(
-                                      ropa[index].name,
-                                      softWrap: true,
-                                      overflow: TextOverflow.fade,
-                                      style: GoogleFonts.montserrat(
-                                          color: Colors.white70,
-                                          shadows: [
-                                            const Shadow(
-                                              blurRadius: 10.0,
-                                              color: Colors.black,
-                                              offset: Offset(3.0, 3.0),
-                                            ),
-                                          ],
-                                          fontWeight: FontWeight.bold,
-                                          fontSize: 20),
-                                    ),
-                                    Positioned(
-                                      bottom: 10,
-                                      left: 10,
-                                      child: Chip(
-                                        elevation: 0,
-                                        backgroundColor: Colors.purple[200],
-                                        labelPadding: const EdgeInsets.all(2),
-                                        label: Text(
-                                          ropa[index].category.toUpperCase(),
-                                          style: GoogleFonts.montserrat(
-                                              color: Colors.black87),
+                                child: GestureDetector(
+                                  onTap: () {
+                                    Navigator.pushNamed(context, '/details',
+                                        arguments: ropa[index]);
+                                  },
+                                  child: Stack(
+                                    fit: StackFit.loose,
+                                    alignment: Alignment.center,
+                                    children: [
+                                      ClipRRect(
+                                        clipBehavior: Clip.antiAlias,
+                                        borderRadius: BorderRadius.circular(15),
+                                        child: Image.network(
+                                          ropa[index].getImageUrl(),
+                                          width: double.infinity,
+                                          height: double.infinity,
+                                          fit: BoxFit.cover,
+                                          loadingBuilder: (context, child,
+                                              loadingProgress) {
+                                            if (loadingProgress != null) {
+                                              return const Center(
+                                                child: SpinKitRotatingCircle(
+                                                  color: Colors.white,
+                                                ),
+                                              );
+                                            }
+                                            return child;
+                                          },
                                         ),
                                       ),
-                                    )
-                                  ],
+                                      Positioned(
+                                        bottom: 10,
+                                        left: 10,
+                                        child: Chip(
+                                          elevation: 0,
+                                          backgroundColor: Colors.purple[200],
+                                          labelPadding: const EdgeInsets.all(2),
+                                          label: Text(
+                                            ropa[index].category.toUpperCase(),
+                                            style: GoogleFonts.montserrat(
+                                                color: Colors.black87),
+                                          ),
+                                        ),
+                                      )
+                                    ],
+                                  ),
                                 ),
                               ),
                             ),
@@ -140,60 +134,55 @@ class _GalleryOfAllProductsState extends State<GalleryOfAllProducts> {
                             width: 240,
                             height: 200,
                             child: Card(
+                              color: Colors.transparent,
                               elevation: 0,
                               shape: RoundedRectangleBorder(
                                   borderRadius: BorderRadius.circular(15)),
                               margin: const EdgeInsets.symmetric(
                                   vertical: 5, horizontal: 15),
                               clipBehavior: Clip.antiAlias,
-                              child: Stack(
-                                fit: StackFit.loose,
-                                alignment: Alignment.center,
-                                children: [
-                                  Ink.image(
-                                    width: double.infinity,
-                                    height: double.infinity,
-                                    fit: BoxFit.cover,
-                                    image: NetworkImage(
+                              child: GestureDetector(
+                                onTap: () {
+                                  Navigator.pushNamed(context, '/details',
+                                      arguments: ropa[index]);
+                                },
+                                child: Stack(
+                                  fit: StackFit.loose,
+                                  alignment: Alignment.center,
+                                  children: [
+                                    Image.network(
                                       ropa[index].getImageUrl(),
-                                    ),
-                                    child: InkWell(
-                                      onTap: () {
-                                        Navigator.pushNamed(context, '/details',
-                                            arguments: ropa[index]);
+                                      width: double.infinity,
+                                      height: double.infinity,
+                                      fit: BoxFit.cover,
+                                      loadingBuilder:
+                                          (context, child, loadingProgress) {
+                                        if (loadingProgress != null) {
+                                          return const Center(
+                                            child: SpinKitRotatingCircle(
+                                              color: Colors.white,
+                                            ),
+                                          );
+                                        }
+                                        return child;
                                       },
                                     ),
-                                  ),
-                                  Text(
-                                    ropa[index].name,
-                                    softWrap: true,
-                                    overflow: TextOverflow.fade,
-                                    style: GoogleFonts.montserrat(
-                                        color: Colors.white70,
-                                        shadows: [
-                                          const Shadow(
-                                            blurRadius: 10.0,
-                                            color: Colors.black,
-                                            offset: Offset(3.0, 3.0),
-                                          ),
-                                        ],
-                                        fontWeight: FontWeight.bold,
-                                        fontSize: 20),
-                                  ),
-                                  Positioned(
-                                    bottom: 10,
-                                    left: 10,
-                                    child: Chip(
-                                      backgroundColor: Colors.purple[200],
-                                      labelPadding: const EdgeInsets.all(2),
-                                      label: Text(
-                                        ropa[index].category.toUpperCase(),
-                                        style: GoogleFonts.montserrat(
-                                            color: Colors.black87),
+                                    
+                                    Positioned(
+                                      bottom: 10,
+                                      left: 10,
+                                      child: Chip(
+                                        backgroundColor: Colors.purple[200],
+                                        labelPadding: const EdgeInsets.all(2),
+                                        label: Text(
+                                          ropa[index].category.toUpperCase(),
+                                          style: GoogleFonts.montserrat(
+                                              color: Colors.black87),
+                                        ),
                                       ),
-                                    ),
-                                  )
-                                ],
+                                    )
+                                  ],
+                                ),
                               ),
                             ),
                           ),
@@ -203,7 +192,7 @@ class _GalleryOfAllProductsState extends State<GalleryOfAllProducts> {
                   },
                 );
               }
-              return const SpinKitCircle(color: Colors.purple, size: 50.0);
+              return const SpinKitRotatingCircle(color: Colors.purple, size: 50.0);
             }),
       ),
     );

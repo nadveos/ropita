@@ -1,12 +1,9 @@
-
-
 import 'package:flutter/material.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
+import 'package:gap/gap.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:lena/infrastructure/models/simple_product_model.dart';
 import 'package:lena/presentations/widgets/widgets.dart';
-
-
 
 class DetailProductScreen extends StatefulWidget {
   const DetailProductScreen({super.key});
@@ -32,56 +29,47 @@ class _DetailProductScreenState extends State<DetailProductScreen> {
         ),
       ),
       child: Scaffold(
-
         backgroundColor: Colors.transparent,
         body: CustomScrollView(
-          
           shrinkWrap: true,
           slivers: [
             SliverAppBar(
-
-
               backgroundColor: Colors.transparent,
               expandedHeight: MediaQuery.of(context).size.height * 0.4,
               collapsedHeight: 80,
               pinned: true,
               foregroundColor: Colors.white,
               flexibleSpace: FlexibleSpaceBar(
-                background: Stack(
-                  children: [
-                    SizedBox.expand(
+                background: Stack(children: [
+                  SizedBox.expand(
                     child: InkWell(
                       child: Hero(
                         transitionOnUserGestures: true,
                         tag: productDetail.id,
                         child: Image.network(
-
                           productDetail.getImageUrl(),
                           fit: BoxFit.cover,
                         ),
                       ),
                     ),
                   ),
-                    SizedBox.expand(
-                      child: DecoratedBox(
-                        decoration: BoxDecoration(
-                          gradient: LinearGradient(
-                            begin: Alignment.bottomRight,
-                            end: Alignment.topCenter,
-                            colors: [
-                              Colors.black.withOpacity(0.0),
-                              Colors.black.withOpacity(0.7),
-                            ],
-                            stops: const [0.7, 1.0],
-                          ),
+                  SizedBox.expand(
+                    child: DecoratedBox(
+                      decoration: BoxDecoration(
+                        gradient: LinearGradient(
+                          begin: Alignment.bottomRight,
+                          end: Alignment.topCenter,
+                          colors: [
+                            Colors.black.withOpacity(0.0),
+                            Colors.black.withOpacity(0.7),
+                          ],
+                          stops: const [0.7, 1.0],
                         ),
                       ),
                     ),
-                  ]
-                ),
+                  ),
+                ]),
               ),
-              
-              
             ),
             SliverToBoxAdapter(
               child: Padding(
@@ -144,15 +132,15 @@ class _DetailProductScreenState extends State<DetailProductScreen> {
                   Text(
                     productDetail.description,
                     textAlign: TextAlign.center,
-                    softWrap: true,
-                    overflow: TextOverflow.clip,
+                    
+                    
                     style: GoogleFonts.montserrat(
                       color: Colors.white,
                       fontSize: 25,
                     ),
                   ),
-                  const SizedBox(
-                    height: 10,
+                  const Gap(
+                    10,
                   ),
                   Text(
                     'Talles ${productDetail.size}',
@@ -162,10 +150,9 @@ class _DetailProductScreenState extends State<DetailProductScreen> {
                         fontStyle: FontStyle.italic,
                         fontWeight: FontWeight.bold),
                   ),
-                  const SizedBox(
-                    height: 20,
-                  ),
-                  OutlinedButton(
+                  const Gap(20),
+                  OutlinedButton.icon(
+                    icon: const Icon(FontAwesomeIcons.whatsapp, color: Colors.white, size: 30,),
                     onPressed: () {
                       onLaunch(
                           'https://wa.me/543875705958?text=Hola%20!!!%20Quisiera%20consultar%20por%20*_%20$productName%20_*%20.Gracias');
@@ -181,7 +168,7 @@ class _DetailProductScreenState extends State<DetailProductScreen> {
                           width: 1,
                           color: Colors.white60,
                         ))),
-                    child: Text(
+                    label: Text(
                       'Consultar',
                       style: GoogleFonts.montserrat(
                         color: Colors.white,
@@ -189,8 +176,6 @@ class _DetailProductScreenState extends State<DetailProductScreen> {
                       ),
                     ),
                   ),
-                  const SizedBox(height: 20,),
-                  const BottomThings()
                 ],
               ),
             )
@@ -200,5 +185,3 @@ class _DetailProductScreenState extends State<DetailProductScreen> {
     );
   }
 }
-
-

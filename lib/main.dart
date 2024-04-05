@@ -2,6 +2,7 @@ import 'dart:ui';
 
 import 'package:flutter/material.dart';
 import 'package:flutter_dotenv/flutter_dotenv.dart';
+import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:lena/presentations/screens/detail_product_screen.dart';
 import 'package:lena/presentations/screens/gallery_of_all_products.dart';
 import 'package:lena/presentations/screens/home_screen.dart';
@@ -9,7 +10,7 @@ import 'package:lena/presentations/screens/list_of_products.dart';
 
 void main() async {
   await dotenv.load(fileName: '.env');
-  runApp(const MyApp());
+  runApp(const ProviderScope(child: MyApp()));
 }
 
 class MyApp extends StatelessWidget {

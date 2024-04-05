@@ -1,17 +1,18 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:gap/gap.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:lena/presentations/widgets/slider_products.dart';
 import 'package:lena/presentations/widgets/widgets.dart';
 
-class AllProductos extends StatefulWidget {
+class AllProductos extends ConsumerStatefulWidget {
   const AllProductos({super.key});
 
   @override
-  State<AllProductos> createState() => _AllProductosState();
+  ConsumerState<AllProductos> createState() => _AllProductosState();
 }
 
-class _AllProductosState extends State<AllProductos> {
+class _AllProductosState extends ConsumerState<AllProductos> {
   @override
   Widget build(BuildContext context) {
     ScrollController controller = ScrollController();
