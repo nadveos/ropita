@@ -1,8 +1,9 @@
+import 'package:lena/config/config.dart';
 import 'package:lena/domain/datasources/product_datasource.dart';
 import 'package:lena/infrastructure/models/products_model.dart';
 import 'package:pocketbase/pocketbase.dart';
 
-final pb = PocketBase('https://lena-db.meapp.com.ar');
+final pb = PocketBase(Enviroment.apiUrl);
 
 class ProductsDataSource extends SimpleProductDataSource {
   @override

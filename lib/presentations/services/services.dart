@@ -1,8 +1,9 @@
+import 'package:lena/config/config.dart';
 import 'package:pocketbase/pocketbase.dart';
 import 'package:lena/infrastructure/models/products_model.dart';
 
 class Services {
-  final pb = PocketBase('https://lena-db.meapp.com.ar');
+  final pb = PocketBase(Enviroment.apiUrl);
 
   Future<AllProducts> getAllClothes() async {
     final records =
