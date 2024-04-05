@@ -1,6 +1,6 @@
 import 'package:lena/domain/datasources/product_datasource.dart';
-import 'package:lena/domain/entities/simple_product_entity.dart';
 import 'package:lena/domain/repositories/product_repository.dart';
+import 'package:lena/infrastructure/models/products_model.dart';
 
 class ProductRepositoryImplementation extends SimpleProductRepository {
   final SimpleProductDataSource datasource;
@@ -8,22 +8,22 @@ class ProductRepositoryImplementation extends SimpleProductRepository {
   ProductRepositoryImplementation({required this.datasource});
 
   @override
-  Future<List<SimpleProductEntity>> getAdultProducts() {
+  Future<AllProducts> getAdultProducts() {
     return datasource.getAdultProducts();
   }
 
   @override
-  Future<List<SimpleProductEntity>> getAllProducts() {
+  Future<AllProducts> getAllProducts() {
     return datasource.getAllProducts();
   }
 
   @override
-  Future<List<SimpleProductEntity>> getKidsProducts() {
+  Future<AllProducts> getKidsProducts() {
     return datasource.getKidsProducts();
   }
 
   @override
-  Future<List<SimpleProductEntity>> getManProducts() {
+  Future<AllProducts> getManProducts() {
     return datasource.getManProducts();
   }
 }

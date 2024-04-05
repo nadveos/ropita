@@ -1,10 +1,10 @@
-import 'package:lena/domain/entities/simple_product_entity.dart';
+import 'package:lena/infrastructure/models/products_model.dart';
 
 abstract class SimpleProductDataSource {
 
-  Future<List<SimpleProductEntity>> getKidsProducts();
-  Future<List<SimpleProductEntity>> getManProducts();
-  Future<List<SimpleProductEntity>> getAdultProducts();
-  Future<List<SimpleProductEntity>> getAllProducts();
+  Future<AllProducts> getKidsProducts();
+  Future<AllProducts> getManProducts();
+  Future<AllProducts> getAdultProducts();
+  Future<AllProducts> getAllProducts();
 
 }
