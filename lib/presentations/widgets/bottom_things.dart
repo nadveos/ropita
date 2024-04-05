@@ -14,7 +14,7 @@ class BottomThings extends StatelessWidget {
       children: [
       
         Text(
-          'Designed by Gustavo J. Flores',
+          'Designed by Milonguita',
           softWrap: true,
           overflow: TextOverflow.fade,
           style: GoogleFonts.montserratAlternates(
@@ -44,7 +44,7 @@ class BottomThings extends StatelessWidget {
                 
               },
               child: Text(
-                'MEAPP.ONLINE',
+                'MEAPP.COM.AR',
                 style: GoogleFonts.montserratAlternates(
                   fontSize: 12,
                   color: Colors.white60,

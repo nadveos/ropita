@@ -1,7 +1,7 @@
 
 import 'dart:convert';
 
-import 'package:ropijamas/infrastructure/models/simple_product_model.dart';
+import 'package:lena/infrastructure/models/simple_product_model.dart';
 
 
 

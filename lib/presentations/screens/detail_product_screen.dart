@@ -1,9 +1,10 @@
 
+
 import 'package:flutter/material.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 import 'package:google_fonts/google_fonts.dart';
-import 'package:ropijamas/infrastructure/models/simple_product_model.dart';
-import 'package:ropijamas/presentations/widgets/widgets.dart';
+import 'package:lena/infrastructure/models/simple_product_model.dart';
+import 'package:lena/presentations/widgets/widgets.dart';
 
 
 
@@ -31,42 +32,56 @@ class _DetailProductScreenState extends State<DetailProductScreen> {
         ),
       ),
       child: Scaffold(
+
         backgroundColor: Colors.transparent,
         body: CustomScrollView(
           
           shrinkWrap: true,
           slivers: [
             SliverAppBar(
-              expandedHeight: 380,
+
+
+              backgroundColor: Colors.transparent,
+              expandedHeight: MediaQuery.of(context).size.height * 0.4,
+              collapsedHeight: 80,
               pinned: true,
               foregroundColor: Colors.white,
-              flexibleSpace: Material(
-                child: InkWell(
-                  child: Hero(
-                    transitionOnUserGestures: true,
-                    tag: productDetail.id,
-                    child: Image.network(
-                      productDetail.getImageUrl(),
-                      fit: BoxFit.cover,
+              flexibleSpace: FlexibleSpaceBar(
+                background: Stack(
+                  children: [
+                    SizedBox.expand(
+                    child: InkWell(
+                      child: Hero(
+                        transitionOnUserGestures: true,
+                        tag: productDetail.id,
+                        child: Image.network(
+
+                          productDetail.getImageUrl(),
+                          fit: BoxFit.cover,
+                        ),
+                      ),
                     ),
                   ),
-                ),
-              ),
-              centerTitle: true,
-              title: Text(
-                productDetail.name.toUpperCase(),
-                style: GoogleFonts.montserrat(
-                  fontSize: 40,
-                  color: const Color.fromARGB(255, 251, 251, 251),
-                  shadows: [
-                    const Shadow(
-                      blurRadius: 10.0,
-                      color: Colors.black54,
-                      offset: Offset(1.0, 3.0),
+                    SizedBox.expand(
+                      child: DecoratedBox(
+                        decoration: BoxDecoration(
+                          gradient: LinearGradient(
+                            begin: Alignment.bottomRight,
+                            end: Alignment.topCenter,
+                            colors: [
+                              Colors.black.withOpacity(0.0),
+                              Colors.black.withOpacity(0.7),
+                            ],
+                            stops: const [0.7, 1.0],
+                          ),
+                        ),
+                      ),
                     ),
-                  ],
+                  ]
                 ),
               ),
+              
+              
             ),
             SliverToBoxAdapter(
               child: Padding(
@@ -76,7 +91,7 @@ class _DetailProductScreenState extends State<DetailProductScreen> {
                   textAlign: TextAlign.center,
                   style: GoogleFonts.montserrat(
                     color: Colors.white,
-                    fontSize: 25,
+                    fontSize: 40,
                   ),
                 ),
               ),
@@ -153,7 +168,7 @@ class _DetailProductScreenState extends State<DetailProductScreen> {
                   OutlinedButton(
                     onPressed: () {
                       onLaunch(
-                          'https://wa.me/543875705958?text=Quisiera%20consultar%20por%20*_%20$productName%20_*%20.Gracias');
+                          'https://wa.me/543875705958?text=Hola%20!!!%20Quisiera%20consultar%20por%20*_%20$productName%20_*%20.Gracias');
                     },
                     style: ButtonStyle(
                         backgroundColor:

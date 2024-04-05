@@ -1,7 +1,7 @@
 import 'package:card_swiper/card_swiper.dart';
 import 'package:flutter/material.dart';
-import 'package:ropijamas/infrastructure/models/simple_product_model.dart';
-import 'package:ropijamas/presentations/services/services.dart';
+import 'package:lena/infrastructure/models/simple_product_model.dart';
+import 'package:lena/presentations/services/services.dart';
 
 class SliderShow extends StatefulWidget {
   const SliderShow({super.key});
@@ -30,7 +30,7 @@ class _SliderShowState extends State<SliderShow> {
 
                       alignment: Alignment.bottomCenter,
                       margin: const EdgeInsets.only(top: 0),
-                      builder: DotSwiperPaginationBuilder(activeSize: 20,color: Colors.white70,activeColor: Colors.purple[100]),
+                      builder: DotSwiperPaginationBuilder(activeSize: 20,color: Colors.white70,activeColor: Colors.purple[300]),
                     ),
                     itemBuilder: (BuildContext context, int index) {
                       return ClipRRect(
@@ -44,7 +44,7 @@ class _SliderShowState extends State<SliderShow> {
                     },
                     itemCount: 5,
                     viewportFraction: 0.8,
-                    scale: 0.9,
+                    scale: 0.6,
                     autoplay: true,
                   ),
                 );

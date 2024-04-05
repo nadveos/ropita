@@ -1,6 +1,6 @@
-import 'package:ropijamas/domain/datasources/product_datasource.dart';
-import 'package:ropijamas/domain/entities/simple_product_entity.dart';
-import 'package:ropijamas/domain/repositories/product_repository.dart';
+import 'package:lena/domain/datasources/product_datasource.dart';
+import 'package:lena/domain/entities/simple_product_entity.dart';
+import 'package:lena/domain/repositories/product_repository.dart';
 
 class ProductRepositoryImplementation extends SimpleProductRepository {
   final SimpleProductDataSource datasource;

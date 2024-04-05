@@ -1,10 +1,10 @@
 import 'dart:ui';
 
 import 'package:flutter/material.dart';
-import 'package:ropijamas/presentations/screens/detail_product_screen.dart';
-import 'package:ropijamas/presentations/screens/gallery_of_all_products.dart';
-import 'package:ropijamas/presentations/screens/home_screen.dart';
-import 'package:ropijamas/presentations/screens/list_of_products.dart';
+import 'package:lena/presentations/screens/detail_product_screen.dart';
+import 'package:lena/presentations/screens/gallery_of_all_products.dart';
+import 'package:lena/presentations/screens/home_screen.dart';
+import 'package:lena/presentations/screens/list_of_products.dart';
 
 void main() => runApp(const MyApp());
 

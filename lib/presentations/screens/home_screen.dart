@@ -1,9 +1,9 @@
+import 'package:animate_do/animate_do.dart';
 import 'package:animated_text_kit/animated_text_kit.dart';
 import 'package:flutter/material.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 import 'package:gap/gap.dart';
 import 'package:google_fonts/google_fonts.dart';
-import 'package:ropijamas/presentations/widgets/bottom_things.dart';
 
 class HomeScreen extends StatefulWidget {
   const HomeScreen({super.key});
@@ -81,19 +81,22 @@ class LayoutChico extends StatelessWidget {
 
 
                 ]),
-                const Gap(5),
-                IconButton.outlined(
-                    iconSize: 30,
-                    color: Colors.white,
-                    onPressed: () {
-                      Navigator.pushNamed(context, '/products');
-                    },
-                    icon: const Icon(FontAwesomeIcons.arrowRight))
+                const Gap(15),
+                SlideInLeft(
+                  duration: const Duration(milliseconds: 600),
+                  child: IconButton.outlined(
+                    padding: const EdgeInsets.all(15),
+                      iconSize: 30,
+                      color: Colors.white,
+                      onPressed: () {
+                        Navigator.pop(context);
+                        Navigator.pushNamed(context, '/products');
+                      },
+                      icon: const Icon(FontAwesomeIcons.arrowRight, size: 40,)),
+                )
               ],
             ),
-            const Gap(15),
             
-            const BottomThings()
           ],
         ),
       ),

@@ -1,4 +1,4 @@
-import 'package:ropijamas/domain/entities/simple_product_entity.dart';
+import 'package:lena/domain/entities/simple_product_entity.dart';
 
 abstract class SimpleProductRepository {
 

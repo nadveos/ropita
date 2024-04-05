@@ -1,8 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_spinkit/flutter_spinkit.dart';
 import 'package:google_fonts/google_fonts.dart';
-import 'package:ropijamas/infrastructure/models/simple_product_model.dart';
-import 'package:ropijamas/presentations/services/services.dart';
+import 'package:lena/infrastructure/models/simple_product_model.dart';
+import 'package:lena/presentations/services/services.dart';
 
 class ManProducts extends StatefulWidget {
   const ManProducts({super.key});
@@ -15,6 +15,8 @@ class _ManProductsState extends State<ManProducts> {
   ScrollController controller = ScrollController();
   List<SimpleProduct> ropa = [];
   Services servicio = Services();
+
+
   @override
   Widget build(BuildContext context) {
     return FutureBuilder(
@@ -38,6 +40,7 @@ class _ManProductsState extends State<ManProducts> {
                     width: 210,
                     // height: 150,
                     child: Card(
+                      color: Colors.transparent,
                       elevation: 0,
                       shape: RoundedRectangleBorder(
                           borderRadius: BorderRadius.circular(15)),
@@ -49,10 +52,12 @@ class _ManProductsState extends State<ManProducts> {
                         alignment: Alignment.bottomCenter,
                         children: [
                           Ink.image(
+
                             width: double.infinity,
                             height: double.infinity,
                             fit: BoxFit.cover,
                             image: NetworkImage(
+
                               ropa[index].getImageUrl(),
                             ),
                             child: InkWell(
@@ -93,7 +98,7 @@ class _ManProductsState extends State<ManProducts> {
         }
         return const Center(
             child: SpinKitRotatingCircle(
-          color: Color.fromARGB(255, 144, 116, 211),
+          color: Color.fromARGB(255, 25, 72, 224),
           size: 150.0,
         ));
       },

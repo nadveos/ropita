@@ -2,8 +2,8 @@ import 'package:flutter/material.dart';
 import 'package:flutter_spinkit/flutter_spinkit.dart';
 import 'package:flutter_staggered_grid_view/flutter_staggered_grid_view.dart';
 import 'package:google_fonts/google_fonts.dart';
-import 'package:ropijamas/infrastructure/models/simple_product_model.dart';
-import 'package:ropijamas/presentations/services/services.dart';
+import 'package:lena/infrastructure/models/simple_product_model.dart';
+import 'package:lena/presentations/services/services.dart';
 
 class GalleryOfAllProducts extends StatefulWidget {
   const GalleryOfAllProducts({super.key});

@@ -1,5 +1,5 @@
-import 'package:ropijamas/domain/entities/simple_product_entity.dart';
-import 'package:ropijamas/infrastructure/models/simple_product_model.dart';
+import 'package:lena/domain/entities/simple_product_entity.dart';
+import 'package:lena/infrastructure/models/simple_product_model.dart';
 
 class ProductMapper {
   static SimpleProductEntity productToEntity(SimpleProduct prod) =>
