@@ -4,7 +4,7 @@
     "start_url": ".",
     "display": "standalone",
     "background_color": "#AF69EE",
-    "theme_color": "#hexcode",
+    "theme_color": "#AF69EE",
     "description": "Ropita comoda",
     "orientation": "portrait-primary",
     "prefer_related_applications": false,

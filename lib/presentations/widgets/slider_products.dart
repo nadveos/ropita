@@ -59,10 +59,11 @@ class _SliderShowState extends State<SliderShow> {
                 viewportFraction: 0.8,
                 scale: 0.6,
                 autoplay: true,
+                autoplayDelay: 3,
               ),
             );
           } else {
-            return const Center(child: CircularProgressIndicator());
+            return const Center();
           }
         });
   }
